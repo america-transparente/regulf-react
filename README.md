@@ -13,6 +13,12 @@ npm run dev
 
 Open http://localhost:5173 to see your app.
 
+To build for production:
+
+```sh
+npm run build
+```
+
 ## Contributors
 
 - René Cáceres ([@panquequelol](https://github.com/panquequelol/)) - Currently working on porting [the existing front-end app](https://github.com/america-transparente/regulf-neo) to React.
