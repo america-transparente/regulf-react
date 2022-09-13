@@ -10,8 +10,10 @@ interface Props {
 
 function Header({ title }: Props) {
 	return (
-		<header className={`bg-gradient-to-r from-primary to-secondary p-3`}>
-			<h1 className='text-2xl text-white font-extrabold italic'>{title}</h1>
+		<header className='bg-gradient-to-r from-primary to-secondary p-4'>
+			<h1 className='text-xl text-white font-extrabold italic font-poppins uppercase'>
+				{title}
+			</h1>
 		</header>
 	);
 }

@@ -1,5 +1,5 @@
-/* Roboto from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+/* Roboto and Poppins from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
