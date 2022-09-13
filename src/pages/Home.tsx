@@ -6,9 +6,12 @@ function Home() {
 	return (
 		<>
 			<Header title='Reguleque' />
-			<main className='mx-auto max-w-6xl'>
+			<main className='mx-auto max-w-6xl p-4 text-font'>
 				<SearchBox />
-				<Hits hitComponent={Hit} />
+				<Hits
+					hitComponent={Hit}
+					classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-2' }}
+				/>
 			</main>
 		</>
 	);
