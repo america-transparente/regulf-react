@@ -1,9 +1,9 @@
-// TODO: Definir interfaz para hit
+// TODO: Definir interfaz para hit, tengo problemitas con los tipos de instantsearch
 
-function Hit({ hit }) {
+function Hit({ hit }: any) {
 	return (
 		<article>
-			<p>{hit.nombre}</p>
+			<p>{hit}</p>
 		</article>
 	);
 }
