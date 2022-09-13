@@ -1,12 +1,16 @@
 import { SearchBox, Hits } from 'react-instantsearch-hooks-web';
+import Header from '../components/Header';
 import Hit from '../components/Hit';
 
 function Home() {
 	return (
-		<main className='mx-auto max-w-2xl'>
-			<SearchBox />
-			<Hits hitComponent={Hit} />
-		</main>
+		<>
+			<Header title='Reguleque' />
+			<main className='mx-auto max-w-6xl'>
+				<SearchBox />
+				<Hits hitComponent={Hit} />
+			</main>
+		</>
 	);
 }
 

@@ -5,6 +5,12 @@ module.exports = {
 		fontFamily: {
 			roboto: ['Roboto', 'sans-serif'],
 		},
+		extend: {
+			colors: {
+				primary: '#088d1b',
+				secondary: '#94ca02',
+			},
+		},
 	},
 	plugins: [],
 };
