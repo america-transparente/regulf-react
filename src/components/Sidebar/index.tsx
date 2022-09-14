@@ -7,13 +7,15 @@ import MonthFilter from './MonthFilter';
 
 function Sidebar() {
 	return (
-		<aside className='max-w-[15rem]'>
-			<SortByFilter />
-			<HitsPerPageFilter />
-			<OrganizationTypeFilter />
-			<ContractTypeFilter />
-			<YearFilter />
-			<MonthFilter />
+		<aside className='lg:max-w-[15rem]'>
+			<div className='grid grid-cols-2 gap-4 lg:grid-cols-1'>
+				<SortByFilter />
+				<HitsPerPageFilter />
+				<OrganizationTypeFilter />
+				<ContractTypeFilter />
+				<YearFilter />
+				<MonthFilter />
+			</div>
 		</aside>
 	);
 }

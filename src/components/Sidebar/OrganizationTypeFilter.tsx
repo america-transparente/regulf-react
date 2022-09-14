@@ -4,7 +4,7 @@ import { RefinementList } from 'react-instantsearch-hooks-web';
 
 function OrganizationTypeFilter() {
 	return (
-		<>
+		<div className='flex flex-col'>
 			<p className='font-bold'>Organismo</p>
 			<RefinementList
 				attribute='nombre_organismo'
@@ -13,7 +13,7 @@ function OrganizationTypeFilter() {
 				showMore={true}
 				limit={6}
 			/>
-		</>
+		</div>
 	);
 }
 
