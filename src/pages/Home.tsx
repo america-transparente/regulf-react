@@ -1,6 +1,7 @@
 import { SearchBox, Hits } from 'react-instantsearch-hooks-web';
 import Header from '../components/Header';
 import Hit from '../components/Hit';
+import Sidebar from '../components/Sidebar';
 
 function Home() {
 	return (
@@ -18,10 +19,13 @@ function Home() {
 					}}
 					autoFocus={true}
 				/>
-				<Hits
-					hitComponent={Hit}
-					classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-2' }}
-				/>
+				<section className='flex gap-4'>
+					<Sidebar />
+					<Hits
+						hitComponent={Hit}
+						classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-4' }}
+					/>
+				</section>
 			</main>
 		</>
 	);
