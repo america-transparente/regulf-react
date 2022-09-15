@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SearchBox, Hits } from 'react-instantsearch-hooks-web';
 import Header from '../components/Header';
 import Hit from '../components/Hit';
@@ -5,6 +6,8 @@ import Sidebar from '../components/Sidebar';
 import FilterIcon from '../components/icons/FilterIcon';
 
 function Home() {
+	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+
 	return (
 		<>
 			<Header title='Reguleque' />
@@ -22,12 +25,15 @@ function Home() {
 						}}
 						autoFocus={true}
 					/>
-					<button className='p-1'>
+					<button
+						className='p-1 lg:hidden'
+						onClick={() => setIsSidebarOpen((prev) => !prev)}
+					>
 						<FilterIcon />
 					</button>
 				</div>
 				<section className='flex flex-col lg:flex-row gap-4'>
-					<Sidebar />
+					<Sidebar isOpen={isSidebarOpen} />
 					<Hits
 						hitComponent={Hit}
 						classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-4' }}
