@@ -1,9 +1,6 @@
 import SortByFilter from './SortByFilter';
 import HitsPerPageFilter from './HitsPerPageFilter';
-import ContractTypeFilter from './ContractTypeFilter';
-import OrganizationTypeFilter from './OrganizationTypeFilter';
-import YearFilter from './YearFilter';
-import MonthFilter from './MonthFilter';
+import Filter from './Filter';
 
 interface Props {
 	isOpen: boolean;
@@ -19,10 +16,31 @@ function Sidebar({ isOpen }: Props) {
 			<div className='grid grid-cols-2 gap-4 lg:grid-cols-1'>
 				<SortByFilter />
 				<HitsPerPageFilter />
-				<OrganizationTypeFilter />
-				<ContractTypeFilter />
-				<YearFilter />
-				<MonthFilter />
+				<Filter
+					title='Organismo'
+					config={{
+						attribute: 'nombre_organismo',
+						showMore: true,
+						limit: 6,
+					}}
+					type='listbox'
+					searchPlaceHolder='Buscar organismos'
+				/>
+				<Filter
+					title='Tipo Contrato'
+					config={{ attribute: 'tipo_contrato' }}
+					type='listbox'
+				/>
+				<Filter
+					title='Año'
+					config={{ attribute: 'año', showMore: true, limit: 6 }}
+					type='listbox'
+				/>
+				<Filter
+					title='Mes'
+					config={{ attribute: 'mes', limit: 12 }}
+					type='listbox'
+				/>
 			</div>
 		</aside>
 	);
