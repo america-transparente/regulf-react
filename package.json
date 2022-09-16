@@ -11,11 +11,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.1",
     "@meilisearch/instant-meilisearch": "^0.8.2",
+    "@popperjs/core": "^2.11.6",
     "algoliasearch": "^4.14.2",
     "jotai": "^1.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-instantsearch-hooks-web": "^6.32.1"
+    "react-instantsearch-hooks-web": "^6.32.1",
+    "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
