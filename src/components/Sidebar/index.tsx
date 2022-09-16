@@ -1,46 +1,64 @@
 import SortByFilter from './SortByFilter';
 import HitsPerPageFilter from './HitsPerPageFilter';
 import Filter from './Filter';
+import FilterListbox from './FilterListbox';
 
 interface Props {
 	isOpen: boolean;
 }
 
 function Sidebar({ isOpen }: Props) {
-	const sidebarStyles = isOpen
-		? 'lg:max-w-[15rem]'
-		: 'lg:max-w-[15rem] hidden lg:block';
+	const sidebarStyles = isOpen ? 'lg:w-[15rem]' : 'lg:w-[15rem] hidden lg:block';
 
 	return (
 		<aside className={sidebarStyles}>
-			<div className='grid grid-cols-2 gap-4 lg:grid-cols-1'>
-				<SortByFilter />
-				<HitsPerPageFilter />
-				<Filter
+			<div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-0 lg:grid-cols-1 divide-y divide-font'>
+				<p className='hidden lg:block uppercase font-bold'>Filtros</p>
+				<SortByFilter
+					config={{
+						items: [
+							{ label: 'Por relevancia', value: 'reguleque' },
+							{
+								label: 'Sueldo (asc)',
+								value: 'reguleque/sort/remuneración_líquida_mensual:asc',
+							},
+							{
+								label: 'Sueldo (desc)',
+								value: 'reguleque/sort/remuneración_líquida_mensual:desc',
+							},
+							{ label: 'Grado EUS (asc)', value: 'reguleque/sort/grado_eus:asc' },
+							{ label: 'Grado EUS (desc)', value: 'reguleque/sort/grado_eus:desc' },
+						],
+					}}
+				/>
+				<HitsPerPageFilter
+					config={{
+						items: [
+							{ label: '12 por pág.', value: 12, default: true },
+							{ label: '30 por pág.', value: 30 },
+							{ label: '60 por pág.', value: 60 },
+							{ label: '120 por pág.', value: 120 },
+						],
+					}}
+				/>
+				<FilterListbox
 					title='Organismo'
 					config={{
 						attribute: 'nombre_organismo',
 						showMore: true,
 						limit: 6,
 					}}
-					type='listbox'
 					searchPlaceHolder='Buscar organismos'
 				/>
-				<Filter
+				<FilterListbox
 					title='Tipo Contrato'
 					config={{ attribute: 'tipo_contrato' }}
-					type='listbox'
 				/>
-				<Filter
+				<FilterListbox
 					title='Año'
 					config={{ attribute: 'año', showMore: true, limit: 6 }}
-					type='listbox'
 				/>
-				<Filter
-					title='Mes'
-					config={{ attribute: 'mes', limit: 12 }}
-					type='listbox'
-				/>
+				<FilterListbox title='Mes' config={{ attribute: 'mes', limit: 12 }} />
 			</div>
 		</aside>
 	);
