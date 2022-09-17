@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
 import {
 	useRefinementList,
 	UseRefinementListProps,
 } from 'react-instantsearch-hooks-web';
+import { usePopper } from 'react-popper';
 import ChevronDown from '../icons/ChevronDown';
 import ChevronUp from '../icons/ChevronUp';
 import numberWithDots from '../../utils/numberWithDots';
-
 interface Props {
 	config: UseRefinementListProps;
 	title: string;
@@ -26,12 +27,18 @@ function Filter({ config, title }: Props) {
 		searchForItems,
 	} = useRefinementList(config);
 
-	// checked={item.isRefined}
+	const [referenceElement, setReferenceElement] =
+		useState<HTMLButtonElement | null>();
+	const [popperElement, setPopperElement] = useState<HTMLUListElement | null>();
+	const { styles, attributes } = usePopper(referenceElement, popperElement);
 
 	return (
 		<Listbox onChange={(value) => refine(value)}>
 			<div>
-				<Listbox.Button className='flex w-full justify-between p-1 lg:py-4'>
+				<Listbox.Button
+					ref={setReferenceElement}
+					className='flex w-full justify-center p-1 lg:py-4'
+				>
 					{({ open }) => (
 						<>
 							{title}
@@ -39,7 +46,12 @@ function Filter({ config, title }: Props) {
 						</>
 					)}
 				</Listbox.Button>
-				<Listbox.Options className='shadow-md border rounded-md divide-y'>
+				<Listbox.Options
+					ref={setPopperElement}
+					className='shadow-lg border rounded-md divide-y bg-white max-w-[15rem]'
+					style={styles.popper}
+					{...attributes.popper}
+				>
 					{items.map((item) => (
 						<Listbox.Option
 							key={item.value}

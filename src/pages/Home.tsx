@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchBox, Hits } from 'react-instantsearch-hooks-web';
+import { SearchBox, InfiniteHits } from 'react-instantsearch-hooks-web';
 import Header from '../components/Header';
 import Hit from '../components/Hit';
 import Sidebar from '../components/Sidebar';
@@ -12,7 +12,7 @@ function Home() {
 		<>
 			<Header title='Reguleque' />
 			<main className='mx-auto max-w-6xl px-4 text-font font'>
-				<div className='flex flex-row items-center'>
+				<div className='flex flex-row items-center space-x-4'>
 					<SearchBox
 						placeholder='Buscar funcionarios'
 						classNames={{
@@ -26,15 +26,15 @@ function Home() {
 						autoFocus={true}
 					/>
 					<button
-						className='p-1 lg:hidden'
+						className='p-1.5 border border-gray-300 lg:hidden rounded-md'
 						onClick={() => setIsSidebarOpen((prev) => !prev)}
 					>
 						<FilterIcon />
 					</button>
 				</div>
-				<section className='flex flex-col lg:flex-row gap-4'>
+				<section className={isSidebarOpen ? 'space-y-4' : 'lg:space-y-4'}>
 					<Sidebar isOpen={isSidebarOpen} />
-					<Hits
+					<InfiniteHits
 						hitComponent={Hit}
 						classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-4' }}
 					/>

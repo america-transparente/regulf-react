@@ -1,12 +1,9 @@
-import {
-	SortBy,
-	useSortBy,
-	UseSortByProps,
-} from 'react-instantsearch-hooks-web';
+import { useSortBy, UseSortByProps } from 'react-instantsearch-hooks-web';
 import { Listbox } from '@headlessui/react';
 import ChevronDown from '../icons/ChevronDown';
 import ChevronUp from '../icons/ChevronUp';
 import { useState } from 'react';
+import { usePopper } from 'react-popper';
 interface Option {
 	value: string;
 	label: string;
@@ -18,6 +15,11 @@ interface Props {
 function SortByFilter({ config }: Props) {
 	const { options, refine } = useSortBy(config);
 
+	const [referenceElement, setReferenceElement] =
+		useState<HTMLButtonElement | null>();
+	const [popperElement, setPopperElement] = useState<HTMLUListElement | null>();
+	const { styles, attributes } = usePopper(referenceElement, popperElement);
+
 	return (
 		<Listbox
 			onChange={(option: Option) => {
@@ -26,7 +28,10 @@ function SortByFilter({ config }: Props) {
 			}}
 		>
 			<div>
-				<Listbox.Button className='flex w-full justify-between p-1 lg:py-4'>
+				<Listbox.Button
+					ref={setReferenceElement}
+					className='flex w-full justify-center p-1 lg:py-4'
+				>
 					{({ open }) => (
 						<>
 							Ordenar por
@@ -34,7 +39,12 @@ function SortByFilter({ config }: Props) {
 						</>
 					)}
 				</Listbox.Button>
-				<Listbox.Options className='shadow-md border rounded-md divide-y'>
+				<Listbox.Options
+					ref={setPopperElement}
+					className='shadow-md border rounded-md divide-y bg-white'
+					style={styles.popper}
+					{...attributes.popper}
+				>
 					{options.map((option) => (
 						<Listbox.Option
 							className='hover:bg-primary/30 transition-all duration-300 hover:cursor-pointer p-2'

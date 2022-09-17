@@ -3,7 +3,8 @@ import {
 	UseHitsPerPageProps,
 } from 'react-instantsearch-hooks-web';
 import { Listbox } from '@headlessui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { usePopper } from 'react-popper';
 import ChevronDown from '../icons/ChevronDown';
 import ChevronUp from '../icons/ChevronUp';
 interface Item {
@@ -20,6 +21,11 @@ function HitsPerPageFilter({ config }: Props) {
 	const defaultItem = config.items.find((item) => item.default == true);
 	const [selectedOption, setSelectedOption] = useState(defaultItem);
 
+	const [referenceElement, setReferenceElement] =
+		useState<HTMLButtonElement | null>();
+	const [popperElement, setPopperElement] = useState<HTMLUListElement | null>();
+	const { styles, attributes } = usePopper(referenceElement, popperElement);
+
 	return (
 		<Listbox
 			onChange={(item: Item) => {
@@ -28,7 +34,10 @@ function HitsPerPageFilter({ config }: Props) {
 			}}
 		>
 			<div>
-				<Listbox.Button className='flex w-full justify-between p-1 lg:py-4'>
+				<Listbox.Button
+					ref={setReferenceElement}
+					className='flex w-full justify-center p-1 lg:py-4'
+				>
 					{({ open }) => (
 						<>
 							{selectedOption?.label}
@@ -36,7 +45,12 @@ function HitsPerPageFilter({ config }: Props) {
 						</>
 					)}
 				</Listbox.Button>
-				<Listbox.Options className='shadow-md border rounded-md divide-y'>
+				<Listbox.Options
+					ref={setPopperElement}
+					className='shadow-md border rounded-md divide-y bg-white'
+					style={styles.popper}
+					{...attributes.popper}
+				>
 					{items.map((item) => (
 						<Listbox.Option
 							className='hover:bg-primary/30 transition-all duration-300 hover:cursor-pointer p-2'

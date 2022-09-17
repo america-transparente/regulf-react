@@ -1,6 +1,5 @@
 import SortByFilter from './SortByFilter';
 import HitsPerPageFilter from './HitsPerPageFilter';
-import Filter from './Filter';
 import FilterListbox from './FilterListbox';
 
 interface Props {
@@ -8,12 +7,11 @@ interface Props {
 }
 
 function Sidebar({ isOpen }: Props) {
-	const sidebarStyles = isOpen ? 'lg:w-[15rem]' : 'lg:w-[15rem] hidden lg:block';
+	const sidebarStyles = isOpen ? '' : 'hidden lg:block';
 
 	return (
 		<aside className={sidebarStyles}>
-			<div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-0 lg:grid-cols-1 divide-y divide-font'>
-				<p className='hidden lg:block uppercase font-bold'>Filtros</p>
+			<div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-0 lg:grid-cols-6 divide-y lg:divide-y-0 lg:divide-x divide-font/50 '>
 				<SortByFilter
 					config={{
 						items: [
