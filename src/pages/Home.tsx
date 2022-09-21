@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { SearchBox, InfiniteHits } from 'react-instantsearch-hooks-web';
+import { FilterIcon } from '../components/icons';
 import Header from '../components/Header';
 import Hit from '../components/Hit';
 import Sidebar from '../components/Sidebar';
-import FilterIcon from '../components/icons/FilterIcon';
 
 function Home() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);

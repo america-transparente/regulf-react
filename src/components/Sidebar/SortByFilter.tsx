@@ -1,8 +1,7 @@
 import { useState, useRef } from 'react';
 import { useSortBy, UseSortByProps } from 'react-instantsearch-hooks-web';
 import { Listbox, Transition } from '@headlessui/react';
-import ChevronDown from '../icons/ChevronDown';
-import ChevronUp from '../icons/ChevronUp';
+import { ChevronDown, ChevronUp } from '../icons';
 import { usePopper } from 'react-popper';
 
 interface Option {

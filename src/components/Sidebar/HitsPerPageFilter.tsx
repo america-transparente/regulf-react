@@ -5,8 +5,7 @@ import {
 } from 'react-instantsearch-hooks-web';
 import { Listbox, Transition } from '@headlessui/react';
 import { usePopper } from 'react-popper';
-import ChevronDown from '../icons/ChevronDown';
-import ChevronUp from '../icons/ChevronUp';
+import { ChevronDown, ChevronUp } from '../icons';
 
 interface Item {
 	value: number;

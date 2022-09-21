@@ -1,5 +1,6 @@
-// TODO: Definir interfaz para hit, tengo problemitas con los tipos de instantsearch
+import { Calendar } from '../components/icons';
 
+// TODO: Definir interfaz para hit, tengo problemitas con los tipos de instantsearch
 interface IHit {
 	nombre: string;
 	tipo_calificación_profesional: string;
@@ -27,7 +28,8 @@ function Hit({ hit }: any) {
 				<tr>
 					<td colSpan={2}>
 						<h3 className='font-bold'>{hit.nombre}</h3>
-						<p>
+						<p className='flex items-start gap-1'>
+							<Calendar />
 							{hit.mes} {hit.año}
 						</p>
 					</td>

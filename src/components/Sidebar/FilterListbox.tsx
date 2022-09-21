@@ -5,8 +5,7 @@ import {
 	UseRefinementListProps,
 } from 'react-instantsearch-hooks-web';
 import { usePopper } from 'react-popper';
-import ChevronDown from '../icons/ChevronDown';
-import ChevronUp from '../icons/ChevronUp';
+import { ChevronDown, ChevronUp } from '../icons';
 import numberWithDots from '../../utils/numberWithDots';
 
 interface Props {
