@@ -11,7 +11,8 @@ interface IHit {
 	tipo_estamento: string;
 	unidad_monetaria: string;
 	viáticos: string;
-	fecha_egreso: string;
+	fecha_ingreso: string;
+	fecha_término: string;
 	mes: string;
 	año: string;
 	nombre_organismo: string;
@@ -49,6 +50,12 @@ function Hit({ hit }: any) {
 				<tr>
 					<td className='font-bold'>Renumeración Bruta</td>
 					<td>{hit.remuneración_bruta_mensual}</td>
+				</tr>
+				<tr>
+					<td colSpan={2}>
+						Desde el <span className='font-semibold'>{hit.fecha_ingreso}</span> hasta
+						el <span className='font-semibold'>{hit.fecha_término}</span>
+					</td>
 				</tr>
 			</table>
 			<div className='grid grid-cols-2 pt-4'>
