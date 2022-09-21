@@ -7,11 +7,13 @@ import { Listbox, Transition } from '@headlessui/react';
 import { usePopper } from 'react-popper';
 import ChevronDown from '../icons/ChevronDown';
 import ChevronUp from '../icons/ChevronUp';
+
 interface Item {
 	value: number;
 	label: string;
 	default?: boolean;
 }
+
 interface Props {
 	config: UseHitsPerPageProps;
 }

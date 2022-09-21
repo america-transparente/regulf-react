@@ -26,8 +26,8 @@ function Header({ title }: Props) {
 					</a>
 				</div>
 				<div className='flex gap-1'>
-					<button className='p-3 bg-primary text-white rounded-md'>Donar</button>
-					<button className='p-3 bg-primary text-white rounded-md'>
+					<button className='p-2 bg-primary text-white rounded-xl'>Donar</button>
+					<button className='p-2 bg-primary text-white rounded-xl'>
 						Hazte Socio
 					</button>
 				</div>
