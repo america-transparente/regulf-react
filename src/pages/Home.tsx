@@ -17,7 +17,7 @@ function Home() {
 						placeholder='Buscar funcionarios'
 						classNames={{
 							root: 'flex-auto',
-							form: 'my-4 border-gray-300 border rounded-md flex',
+							form: 'my-4 shadow-md rounded-md flex bg-white',
 							input: 'flex-auto rounded order-2 px-1 py-1.5 focus:outline-none',
 							submitIcon: 'h-6 w-6 p-1 order-1 fill-font',
 							reset: 'order-3',

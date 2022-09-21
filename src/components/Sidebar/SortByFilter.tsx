@@ -1,61 +1,88 @@
+import { useState, useRef } from 'react';
 import { useSortBy, UseSortByProps } from 'react-instantsearch-hooks-web';
-import { Listbox } from '@headlessui/react';
+import { Listbox, Transition } from '@headlessui/react';
 import ChevronDown from '../icons/ChevronDown';
 import ChevronUp from '../icons/ChevronUp';
-import { useState } from 'react';
 import { usePopper } from 'react-popper';
+
 interface Option {
 	value: string;
 	label: string;
 }
+
 interface Props {
 	config: UseSortByProps;
 }
 
 function SortByFilter({ config }: Props) {
-	const { options, refine } = useSortBy(config);
+	const { options, refine, currentRefinement } = useSortBy(config);
+	console.log(options);
+	const defaultRefinement: string =
+		options.find(({ value }) => value == currentRefinement)?.label ||
+		'Ordenar por';
+	const [selectedOption, setSelectedOption] =
+		useState<string>(defaultRefinement);
 
+	// Popper.js
+	const popperRef = useRef(null);
 	const [referenceElement, setReferenceElement] =
-		useState<HTMLButtonElement | null>();
-	const [popperElement, setPopperElement] = useState<HTMLUListElement | null>();
+		useState<HTMLButtonElement | null>(null);
+	const [popperElement, setPopperElement] = useState<HTMLUListElement | null>(
+		null
+	);
 	const { styles, attributes } = usePopper(referenceElement, popperElement);
 
 	return (
 		<Listbox
 			onChange={(option: Option) => {
-				// setSelectedOption(option);
+				setSelectedOption(option.label);
 				refine(option.value);
 			}}
 		>
-			<div>
-				<Listbox.Button
-					ref={setReferenceElement}
-					className='flex w-full justify-center p-1 lg:py-4'
-				>
-					{({ open }) => (
-						<>
-							Ordenar por
-							<span>{open ? <ChevronUp /> : <ChevronDown />}</span>
-						</>
-					)}
-				</Listbox.Button>
-				<Listbox.Options
-					ref={setPopperElement}
-					className='shadow-md border rounded-md divide-y bg-white'
-					style={styles.popper}
-					{...attributes.popper}
-				>
-					{options.map((option) => (
-						<Listbox.Option
-							className='hover:bg-primary/30 transition-all duration-300 hover:cursor-pointer p-2'
-							key={option.label}
-							value={option}
+			{({ open: isOpen }) => (
+				<div>
+					<Listbox.Button
+						ref={setReferenceElement}
+						className='flex w-full justify-center p-1 lg:py-4'
+					>
+						{isOpen ? (
+							<h4 className='text-primary flex gap-1 font-semibold'>
+								{selectedOption} <ChevronUp />
+							</h4>
+						) : (
+							<h4 className='flex gap-1 font-semibold'>
+								{selectedOption} <ChevronDown />
+							</h4>
+						)}
+					</Listbox.Button>
+					<div ref={popperRef} style={styles.popper} {...attributes.popper}>
+						<Transition
+							appear={true}
+							show={isOpen}
+							enter='transition ease-out duration-100'
+							enterFrom='transform opacity-0 scale-95'
+							enterTo='transform opacity-100 scale-100'
+							leave='transition ease-in duration-75'
+							leaveFrom='transform opacity-100 scale-100'
+							leaveTo='transform opacity-0 scale-95'
+							beforeEnter={() => setPopperElement(popperRef.current)}
+							afterLeave={() => setPopperElement(null)}
 						>
-							{option.label}
-						</Listbox.Option>
-					))}
-				</Listbox.Options>
-			</div>
+							<Listbox.Options className='shadow-md border rounded-md divide-y bg-white'>
+								{options.map((option) => (
+									<Listbox.Option
+										className='hover:bg-gray-300 transition-all duration-300 hover:cursor-pointer p-2'
+										key={option.label}
+										value={option}
+									>
+										{option.label}
+									</Listbox.Option>
+								))}
+							</Listbox.Options>
+						</Transition>
+					</div>
+				</div>
+			)}
 		</Listbox>
 	);
 }

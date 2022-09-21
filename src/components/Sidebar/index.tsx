@@ -11,7 +11,7 @@ function Sidebar({ isOpen }: Props) {
 
 	return (
 		<aside className={sidebarStyles}>
-			<div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-0 lg:grid-cols-6 divide-y lg:divide-y-0 lg:divide-x divide-font/50 '>
+			<div className='grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-0 lg:grid-cols-6'>
 				<SortByFilter
 					config={{
 						items: [
