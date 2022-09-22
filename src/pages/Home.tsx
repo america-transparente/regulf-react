@@ -4,6 +4,7 @@ import { FilterIcon } from '../components/icons';
 import Header from '../components/Header';
 import Hit from '../components/Hit';
 import Sidebar from '../components/Sidebar';
+import HitsOnScroll from '../components/HitsOnScroll';
 
 function Home() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
@@ -26,7 +27,7 @@ function Home() {
 						autoFocus={true}
 					/>
 					<button
-						className='p-1.5 border border-gray-300 lg:hidden rounded-md'
+						className='p-1.5 bg-white rounded-md shadow-md lg:hidden'
 						onClick={() => setIsSidebarOpen((prev) => !prev)}
 					>
 						<FilterIcon />
@@ -34,10 +35,7 @@ function Home() {
 				</div>
 				<section className={isSidebarOpen ? 'space-y-4' : 'lg:space-y-4'}>
 					<Sidebar isOpen={isSidebarOpen} />
-					<InfiniteHits
-						hitComponent={Hit}
-						classNames={{ list: 'grid grid-cols-1 lg:grid-cols-3 gap-4' }}
-					/>
+					<HitsOnScroll />
 				</section>
 			</main>
 		</>

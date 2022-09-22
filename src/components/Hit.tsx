@@ -22,6 +22,8 @@ interface Props {
 	hit: IHit;
 }
 
+// TODO: figure a way to add IHit to prop hit that doesnt throw erros in HitsOnScroll
+
 function Hit({ hit }: any) {
 	return (
 		<article className='p-4 rounded-md shadow-md bg-white'>
