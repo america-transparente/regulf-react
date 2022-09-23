@@ -12,13 +12,13 @@ function Home() {
 	return (
 		<>
 			<Header title='Reguleque' />
-			<main className='mx-auto max-w-6xl px-4 text-font font'>
+			<main className='mx-auto max-w-6xl px-4 text-font font space-y-4 md:space-y-0 py-4'>
 				<div className='flex flex-row items-center space-x-4'>
 					<SearchBox
 						placeholder='Buscar funcionarios'
 						classNames={{
 							root: 'flex-auto',
-							form: 'my-4 shadow-md rounded-md flex bg-white',
+							form: 'shadow-md rounded-md flex bg-white',
 							input: 'flex-auto rounded order-2 px-1 py-1.5 focus:outline-none',
 							submitIcon: 'h-6 w-6 p-1 order-1 fill-font',
 							reset: 'order-3',
@@ -33,10 +33,8 @@ function Home() {
 						<FilterIcon />
 					</button>
 				</div>
-				<section className={isSidebarOpen ? 'space-y-4' : 'lg:space-y-4'}>
-					<Sidebar isOpen={isSidebarOpen} />
-					<HitsOnScroll />
-				</section>
+				<Sidebar isOpen={isSidebarOpen} />
+				<HitsOnScroll />
 			</main>
 		</>
 	);

@@ -1,4 +1,5 @@
 import { Calendar } from '../components/icons';
+import Button from './Button';
 
 // interface IHit {
 // 	nombre: string;
@@ -58,9 +59,9 @@ function Hit({ hit }: any) {
 				</tbody>
 			</table>
 			<div className='grid grid-cols-2 pt-4'>
-				<button className='p-2 bg-primary text-green-100 font-bold rounded-lg col-start-2'>
+				<Button type='primary' className='col-start-2'>
 					Más información
-				</button>
+				</Button>
 			</div>
 		</article>
 	);

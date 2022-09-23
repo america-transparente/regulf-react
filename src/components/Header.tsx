@@ -1,4 +1,5 @@
 import americatransparenteLogo from '../assets/americatransparente_logo.png';
+import Button from './Button';
 interface Props {
 	title: string;
 }
@@ -25,11 +26,9 @@ function Header({ title }: Props) {
 						/>
 					</a>
 				</div>
-				<div className='flex gap-1'>
-					<button className='p-2 bg-primary text-white rounded-xl'>Donar</button>
-					<button className='p-2 bg-primary text-white rounded-xl'>
-						Hazte Socio
-					</button>
+				<div className='space-x-4'>
+					<Button type='primary'>Donar</Button>
+					<Button type='primary'>Hazte Socio</Button>
 				</div>
 			</section>
 		</header>

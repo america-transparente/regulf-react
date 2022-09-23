@@ -64,10 +64,10 @@ function HitsOnScroll({ config }: Props) {
 
 	return (
 		<section className='space-y-1'>
-			<p className='text-font'>
+			{/* <p className='text-font'>
 				<span className='font-bold'>Resultados encontrados:</span>{' '}
 				{results?.nbHits ? numberWithDots(results?.nbHits) : results?.nbHits}
-			</p>
+			</p> */}
 			<ul className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
 				{hits.map((hit) => (
 					<li>

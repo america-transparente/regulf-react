@@ -3,7 +3,7 @@ import { useSortBy, UseSortByProps } from 'react-instantsearch-hooks-web';
 import { Listbox, Transition } from '@headlessui/react';
 import { ChevronDown, ChevronUp } from '../icons';
 import { usePopper } from 'react-popper';
-
+import Button from '../Button';
 interface Option {
 	value: string;
 	label: string;
@@ -45,13 +45,16 @@ function SortByFilter({ config }: Props) {
 						className='flex w-full justify-center p-1 lg:py-4'
 					>
 						{isOpen ? (
-							<h4 className='text-primary flex gap-1 font-semibold'>
+							<Button
+								className='text-primary flex gap-1 w-full justify-center'
+								type='filter'
+							>
 								{selectedOption} <ChevronUp />
-							</h4>
+							</Button>
 						) : (
-							<h4 className='flex gap-1 font-semibold'>
+							<Button className='flex gap-1 w-full justify-center' type='filter'>
 								{selectedOption} <ChevronDown />
-							</h4>
+							</Button>
 						)}
 					</Listbox.Button>
 					<div ref={popperRef} style={styles.popper} {...attributes.popper}>

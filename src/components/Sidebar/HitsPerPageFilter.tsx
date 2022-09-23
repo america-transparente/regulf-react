@@ -6,6 +6,7 @@ import {
 import { Listbox, Transition } from '@headlessui/react';
 import { usePopper } from 'react-popper';
 import { ChevronDown, ChevronUp } from '../icons';
+import Button from '../Button';
 
 interface Item {
 	value: number;
@@ -45,13 +46,16 @@ function HitsPerPageFilter({ config }: Props) {
 						className='flex w-full justify-center p-1 lg:py-4'
 					>
 						{isOpen ? (
-							<h4 className='text-primary flex gap-1 font-semibold'>
+							<Button
+								className='text-primary flex gap-1 w-full justify-center'
+								type='filter'
+							>
 								{selectedOption?.label} <ChevronUp />
-							</h4>
+							</Button>
 						) : (
-							<h4 className='flex gap-1 font-semibold'>
+							<Button className='flex gap-1 w-full justify-center' type='filter'>
 								{selectedOption?.label} <ChevronDown />
-							</h4>
+							</Button>
 						)}
 					</Listbox.Button>
 					<div ref={popperRef} style={styles.popper} {...attributes.popper}>
