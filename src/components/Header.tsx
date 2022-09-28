@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import { usePopper } from "react-popper";
+import { useState } from "react";
+import { Transition } from "@headlessui/react";
 import { MenuIcon } from "../components/icons";
 import Button from "./Button";
 import CancelIcon from "./icons/CancelIcon";
@@ -18,13 +17,6 @@ interface Props {
 
 function Header({ title }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
-
-  // Popper.js
-  const popperRef = useRef(null);
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLButtonElement | null>(null); // opens popper
-  const [popperElement, setPopperElement] = useState(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement);
 
   return (
     <header className="bg-gradient-to-r from-primary to-secondary">
@@ -47,7 +39,7 @@ function Header({ title }: Props) {
             className="md:hidden"
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
-            <MenuIcon />
+            {!isMenuOpen ? <MenuIcon /> : <CancelIcon />}
           </Button>
           <Transition
             appear={true}
