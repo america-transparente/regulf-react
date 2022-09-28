@@ -1,22 +1,59 @@
-import { ReactNode } from 'react';
+import { ReactNode, ComponentProps, DetailedHTMLProps } from "react";
 
-interface Props {
-	className?: string;
-	type: 'primary' | 'filter';
-	children: ReactNode;
-	onClick?: (param: any) => void;
+// interface Props {
+//   className?: string;
+
+//   onClick?: (param: any) => void;
+// }
+interface Props extends ButtonType {
+  buttonType: "primary" | "filter";
+  children: ReactNode;
+  href?: string;
+  target?: string;
 }
 
-function Button({ children, className, type, ...props }: Props) {
-	const classes =
-		type == 'filter'
-			? `p-2 bg-white text-font font-bold rounded-lg shadow-md ${className}`
-			: `p-2 bg-primary text-green-100 font-bold rounded-lg shadow-md shadow-primary/20 ${className}`;
+type ButtonType = DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> & {};
 
-	return (
-		<button {...props} className={classes}>
-			{children}
-		</button>
-	);
+type AnchorType = DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> & {};
+
+// TODO: figure out the best way to work with buttons that open links
+
+function AppButton({
+  children,
+  className,
+  buttonType,
+  target,
+  href,
+  ...rest
+}: Props) {
+  const classes =
+    buttonType == "filter"
+      ? `p-2 bg-white text-font font-bold rounded-lg shadow-md ${className}`
+      : `p-2 bg-primary text-green-100 font-bold rounded-lg shadow-md shadow-primary/20 ${className}`;
+
+  return (
+    <>
+      {href ? (
+        <a
+          href={href}
+          target={target}
+          className={classes}
+          {...(rest as AnchorType)}
+        >
+          {children}
+        </a>
+      ) : (
+        <button {...rest} className={classes}>
+          {children}
+        </button>
+      )}
+    </>
+  );
 }
-export default Button;
+export default AppButton;

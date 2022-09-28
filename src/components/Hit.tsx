@@ -1,5 +1,5 @@
-import { Calendar } from '../components/icons';
-import Button from './Button';
+import { Calendar } from "../components/icons";
+import Button from "./Button";
 
 // interface IHit {
 // 	nombre: string;
@@ -21,50 +21,51 @@ import Button from './Button';
 // TODO: figure a way to add IHit to prop hit that doesnt throw erros in HitsOnScroll
 
 function Hit({ hit }: any) {
-	return (
-		<article className='p-4 rounded-md shadow-md bg-white'>
-			<table>
-				<tbody className='divide-y'>
-					<tr>
-						<td colSpan={2}>
-							<h3 className='font-bold text-xl'>{hit.nombre}</h3>
-							<p className='flex items-start gap-1'>
-								<Calendar />
-								{hit.mes} {hit.año}
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td className='font-bold'>Organismo</td>
-						<td>{hit.nombre_organismo}</td>
-					</tr>
-					<tr>
-						<td className='font-bold'>Cargo</td>
-						<td>{hit.tipo_cargo}</td>
-					</tr>
-					<tr>
-						<td className='font-bold'>Tipo</td>
-						<td>{hit.tipo_contrato}</td>
-					</tr>
-					<tr>
-						<td className='font-bold'>Renumeración Bruta</td>
-						<td>{hit.remuneración_bruta_mensual}</td>
-					</tr>
-					<tr>
-						<td colSpan={2}>
-							Desde el <span className='font-semibold'>{hit.fecha_ingreso}</span> hasta
-							el <span className='font-semibold'>{hit.fecha_término}</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<div className='grid grid-cols-2 pt-4'>
-				<Button type='primary' className='col-start-2'>
-					Más información
-				</Button>
-			</div>
-		</article>
-	);
+  return (
+    <li className="p-4 rounded-md shadow-md bg-white">
+      <table>
+        <tbody className="divide-y">
+          <tr>
+            <td colSpan={2}>
+              <h3 className="font-bold text-xl">{hit.nombre}</h3>
+              <p className="flex items-start gap-1">
+                <Calendar />
+                {hit.mes} {hit.año}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td className="font-bold">Organismo</td>
+            <td>{hit.nombre_organismo}</td>
+          </tr>
+          <tr>
+            <td className="font-bold">Cargo</td>
+            <td>{hit.tipo_cargo}</td>
+          </tr>
+          <tr>
+            <td className="font-bold">Tipo</td>
+            <td>{hit.tipo_contrato}</td>
+          </tr>
+          <tr>
+            <td className="font-bold">Renumeración Bruta</td>
+            <td>{hit.remuneración_bruta_mensual}</td>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              Desde el{" "}
+              <span className="font-semibold">{hit.fecha_ingreso}</span> hasta
+              el <span className="font-semibold">{hit.fecha_término}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="grid grid-cols-2 pt-4">
+        <Button buttonType="primary" className="col-start-2">
+          Más información
+        </Button>
+      </div>
+    </li>
+  );
 }
 
 export default Hit;
