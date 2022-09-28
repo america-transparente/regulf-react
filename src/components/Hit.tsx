@@ -22,7 +22,7 @@ import Button from "./Button";
 
 function Hit({ hit }: any) {
   return (
-    <li className="p-4 rounded-md shadow-md bg-white">
+    <li className="p-4 rounded-md shadow-md bg-white flex flex-col justify-between">
       <table>
         <tbody className="divide-y">
           <tr>
