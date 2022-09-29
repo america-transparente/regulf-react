@@ -15,8 +15,31 @@ interface Props {
  * Colors primary and secondary must be declare in ```tailwind.config.cjs```
  */
 
+function MenuButtons() {
+  return (
+    <div className="flex gap-4 flex-col md:flex-row">
+      <Button
+        buttonType="primary"
+        href="https://app.reveniu.com/checkout-custom-link/BYxZp272P6IlcjIDPMaBuuZrGq1CezOh"
+        target="_blank"
+        className="text-center flex-auto"
+      >
+        Donar
+      </Button>
+      <Button
+        buttonType="primary"
+        href="https://app.reveniu.com/checkout-custom-link/aSmPLaykZ0lAnrXpMcJUopEccz9F4kRE"
+        target="_blank"
+        className="text-center flex-auto"
+      >
+        Hazte Socio
+      </Button>
+    </div>
+  );
+}
+
 function Header({ title }: Props) {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <header className="bg-gradient-to-r from-primary to-secondary">
@@ -50,25 +73,13 @@ function Header({ title }: Props) {
             leave="transition ease-in duration-75"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
-            className="z-50 w-full absolute left-0 shadow-md p-4 flex flex-col gap-4 bg-gray-200 my-4 md:bg-transparent md:relative md:p-0 md:shadow-none md:flex-row md:my-0"
+            className="z-50 w-full absolute left-0 shadow-md p-4 flex flex-col gap-4 bg-gray-200 my-4 md:hidden"
           >
-            <Button
-              buttonType="primary"
-              href="https://app.reveniu.com/checkout-custom-link/BYxZp272P6IlcjIDPMaBuuZrGq1CezOh"
-              target="_blank"
-              className="text-center"
-            >
-              Donar
-            </Button>
-            <Button
-              buttonType="primary"
-              href="https://app.reveniu.com/checkout-custom-link/aSmPLaykZ0lAnrXpMcJUopEccz9F4kRE"
-              target="_blank"
-              className="text-center"
-            >
-              Hazte Socio
-            </Button>
+            <MenuButtons />
           </Transition>
+          <div className="md:flex gap-4 hidden">
+            <MenuButtons />
+          </div>
         </div>
       </section>
     </header>
