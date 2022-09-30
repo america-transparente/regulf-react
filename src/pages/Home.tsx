@@ -13,7 +13,7 @@ function Home() {
     <>
       <Header title="Reguleque" />
       <main className="mx-auto max-w-6xl px-4 text-font font">
-        <section className="sticky top-0 pt-4 bg-gray-100/90 border-b-2 border-gray-200 bg-clip-padding backdrop-filter backdrop-blur-sm">
+        <section className="sticky top-0 pt-4 bg-gray-100/90 bg-clip-padding backdrop-filter backdrop-blur-sm">
           <div className="flex flex-row items-center space-x-4 pb-4 lg:pb-0">
             <SearchBox
               placeholder="Buscar funcionarios"

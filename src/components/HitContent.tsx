@@ -11,7 +11,7 @@ function HitContent({ hit, buttonComponent, type }: Props) {
   const isCompact = type === "compact";
 
   return (
-    <div className="p-4 rounded-md shadow-md bg-white flex flex-col justify-between h-full text-font max-w-lg">
+    <div className="p-4 rounded-2xl shadow-md bg-white flex flex-col justify-between h-full text-font max-w-lg">
       <table>
         <tbody className="divide-y">
           <tr>

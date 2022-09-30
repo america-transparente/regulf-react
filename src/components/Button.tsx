@@ -34,8 +34,8 @@ function AppButton({
 }: Props) {
   const classes =
     buttonType == "filter"
-      ? `py-2 px-4 bg-white text-font font-bold rounded-lg shadow-md hover:bg-gray-50 transition-all ${className}`
-      : `py-2 px-4 bg-primary text-green-100 font-bold rounded-lg shadow-md shadow-primary/20 hover:bg-primary/80 transition-all ${className}`;
+      ? `py-2 px-4 bg-white text-font font-bold rounded-2xl shadow-md hover:bg-gray-50 transition-all ${className}`
+      : `py-2 px-4 bg-primary text-green-100 font-bold rounded-2xl shadow-md shadow-primary/20 hover:bg-primary/80 transition-all ${className}`;
 
   return (
     <>
