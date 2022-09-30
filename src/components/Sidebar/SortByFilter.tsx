@@ -74,7 +74,7 @@ function SortByFilter({ config }: Props) {
               beforeEnter={() => setPopperElement(popperRef.current)}
               afterLeave={() => setPopperElement(null)}
             >
-              <Listbox.Options className="shadow-md border rounded-md divide-y bg-white max-h-96 overflow-y-scroll">
+              <Listbox.Options className="shadow-md border rounded-md divide-y bg-white max-h-96 overflow-auto">
                 {options.map((option) => (
                   <Listbox.Option
                     className="hover:bg-gray-300 transition-all duration-300 hover:cursor-pointer p-2"

@@ -10,8 +10,17 @@ interface Props {
 function HitContent({ hit, buttonComponent, type }: Props) {
   const isCompact = type === "compact";
 
+  const contentWrapperStyles =
+    "p-4 rounded-2xl shadow-md bg-white flex flex-col justify-between h-full text-font max-w-lg";
+
   return (
-    <div className="p-4 rounded-2xl shadow-md bg-white flex flex-col justify-between h-full text-font max-w-lg max-h-96 overflow-auto">
+    <div
+      className={
+        !isCompact
+          ? `${contentWrapperStyles} max-h-[32rem] md:max-h-full overflow-auto`
+          : contentWrapperStyles
+      }
+    >
       <table>
         <tbody className="divide-y">
           <tr>

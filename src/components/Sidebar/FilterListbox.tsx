@@ -72,7 +72,7 @@ function Filter({ config, title }: Props) {
               beforeEnter={() => setPopperElement(popperRef.current)}
               afterLeave={() => setPopperElement(null)}
             >
-              <Listbox.Options className="shadow-lg rounded-md divide-y bg-white max-w-[15rem] max-h-96 overflow-y-scroll">
+              <Listbox.Options className="shadow-lg rounded-md divide-y bg-white max-w-[15rem] max-h-96 overflow-auto">
                 {items.map((item) => (
                   <Listbox.Option
                     key={item.value}
