@@ -59,7 +59,7 @@ function Header({ title }: Props) {
         <div>
           <Button
             buttonType="primary"
-            className="md:hidden"
+            className="md:hidden px-2"
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             {!isMenuOpen ? <MenuIcon /> : <CancelIcon />}
