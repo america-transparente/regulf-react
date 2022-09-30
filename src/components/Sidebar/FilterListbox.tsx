@@ -28,7 +28,7 @@ function Filter({ config, title }: Props) {
   // Popper.js
   const popperRef = useRef(null);
   const [referenceElement, setReferenceElement] =
-    useState<HTMLButtonElement | null>(null); // opens popper
+    useState<HTMLDivElement | null>(null); // opens popper
   const [popperElement, setPopperElement] = useState<HTMLUListElement | null>(
     null
   );
@@ -41,6 +41,7 @@ function Filter({ config, title }: Props) {
           <Listbox.Button
             ref={setReferenceElement}
             className="flex w-full justify-center p-1 lg:py-4"
+            as="div"
           >
             {isOpen ? (
               <Button

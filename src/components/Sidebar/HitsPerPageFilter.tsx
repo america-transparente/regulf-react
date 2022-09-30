@@ -26,7 +26,7 @@ function HitsPerPageFilter({ config }: Props) {
   // Popper.js
   const popperRef = useRef(null);
   const [referenceElement, setReferenceElement] =
-    useState<HTMLButtonElement | null>(null);
+    useState<HTMLDivElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLUListElement | null>(
     null
   );
@@ -44,6 +44,7 @@ function HitsPerPageFilter({ config }: Props) {
           <Listbox.Button
             ref={setReferenceElement}
             className="flex w-full justify-center p-1 lg:py-4"
+            as="div"
           >
             {isOpen ? (
               <Button
