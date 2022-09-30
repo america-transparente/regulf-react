@@ -29,7 +29,7 @@ function Home() {
               autoFocus={true}
             />
             <button
-              className="p-1.5 bg-white rounded-md shadow-md lg:hidden"
+              className="p-1.5 bg-white rounded-lg shadow-md lg:hidden"
               onClick={() => setIsSidebarOpen((prev) => !prev)}
             >
               <FilterIcon />
