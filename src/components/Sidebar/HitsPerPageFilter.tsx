@@ -48,14 +48,14 @@ function HitsPerPageFilter({ config }: Props) {
           >
             {isOpen ? (
               <Button
-                className="text-primary flex gap-1 w-full justify-center"
+                className="text-primary flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
               >
                 {selectedOption?.label} <ChevronUp />
               </Button>
             ) : (
               <Button
-                className="flex gap-1 w-full justify-center"
+                className="flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
               >
                 {selectedOption?.label} <ChevronDown />

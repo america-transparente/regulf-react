@@ -40,19 +40,19 @@ function Filter({ config, title }: Props) {
         <div>
           <Listbox.Button
             ref={setReferenceElement}
-            className="flex w-full justify-center p-1 lg:py-4"
+            className="flex w-full justify-center p-1 lg:py-4 h-full"
             as="div"
           >
             {isOpen ? (
               <Button
-                className="text-primary flex gap-1 w-full justify-center"
+                className="text-primary flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
               >
                 {title} <ChevronUp />
               </Button>
             ) : (
               <Button
-                className="flex gap-1 w-full justify-center"
+                className="flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
               >
                 {title} <ChevronDown />
