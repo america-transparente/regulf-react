@@ -16,7 +16,7 @@ function Home() {
           <div className="flex flex-row items-center space-x-4 pb-4 lg:pb-0">
             <Searchbox />
             <button
-              className="p-1.5 bg-white rounded-lg shadow-md lg:hidden"
+              className="p-1.5 bg-white rounded-xl shadow-md lg:hidden"
               onClick={() => setIsSidebarOpen((prev) => !prev)}
             >
               <FilterIcon />
