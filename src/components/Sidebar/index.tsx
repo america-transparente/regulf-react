@@ -53,16 +53,23 @@ function Sidebar({ isOpen }: Props) {
             limit: 6,
           }}
           searchPlaceHolder="Buscar organismos"
+          ariaLabel="Filtrar por organismo gubernamental"
         />
         <FilterListbox
           title="Tipo Contrato"
           config={{ attribute: "tipo_contrato" }}
+          ariaLabel="Filtrar por tipo de contrato"
         />
         <FilterListbox
           title="Año"
           config={{ attribute: "año", showMore: true, limit: 6 }}
+          ariaLabel="Filtrar por año"
         />
-        <FilterListbox title="Mes" config={{ attribute: "mes", limit: 12 }} />
+        <FilterListbox
+          title="Mes"
+          config={{ attribute: "mes", limit: 12 }}
+          ariaLabel="Filtrar por mes"
+        />
       </div>
     </aside>
   );

@@ -49,6 +49,7 @@ function SortByFilter({ config }: Props) {
               <Button
                 className="text-primary flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label="Ordenar resultados por"
               >
                 {selectedOption} <ChevronUp />
               </Button>
@@ -56,6 +57,7 @@ function SortByFilter({ config }: Props) {
               <Button
                 className="flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label="Ordenar resultados por"
               >
                 {selectedOption} <ChevronDown />
               </Button>

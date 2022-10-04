@@ -13,9 +13,10 @@ interface Props {
   config: UseRefinementListProps;
   title: string;
   searchPlaceHolder?: string;
+  ariaLabel: string;
 }
 
-function Filter({ config, title }: Props) {
+function Filter({ config, title, ariaLabel }: Props) {
   const {
     items, // filter options
     refine, // apply filter option
@@ -47,6 +48,7 @@ function Filter({ config, title }: Props) {
               <Button
                 className="text-primary flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label={ariaLabel}
               >
                 {title} <ChevronUp />
               </Button>
@@ -54,6 +56,7 @@ function Filter({ config, title }: Props) {
               <Button
                 className="flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label={ariaLabel}
               >
                 {title} <ChevronDown />
               </Button>

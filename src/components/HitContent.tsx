@@ -14,94 +14,91 @@ function HitContent({ hit, buttonComponent, type }: Props) {
     "p-4 rounded-2xl shadow-md bg-white flex flex-col justify-between h-full text-font max-w-lg";
 
   return (
-    <div
+    <section
       className={
         !isCompact
           ? `${contentWrapperStyles} max-h-[32rem] md:max-h-full overflow-auto`
           : contentWrapperStyles
       }
     >
-      <table>
-        <tbody className="divide-y">
-          <tr>
-            <td colSpan={2}>
-              <h3 className="font-bold text-xl">{hit.nombre}</h3>
-              <p className="flex items-start gap-1">
-                <Calendar />
-                {hit.mes} {hit.año}
-              </p>
-            </td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Región</td>
-            <td>{hit.región}</td>
-          </tr>
-          <tr>
-            <td className="font-bold">Organismo</td>
-            <td>{hit.nombre_organismo}</td>
-          </tr>
-          <tr>
-            <td className="font-bold">Cargo</td>
-            <td>{hit.tipo_cargo}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Calificación Profesional</td>
-            <td>{hit.tipo_calificación_profesional}</td>
-          </tr>
-          <tr>
-            <td className="font-bold">Tipo</td>
-            <td>{hit.tipo_contrato}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Ingreso</td>
-            <td>{hit.fecha_ingreso}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Egreso</td>
-            <td>{hit.fecha_egreso}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Remuneración Liq.</td>
-            <td>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</td>
-          </tr>
-          <tr>
-            <td className="font-bold">Renumeración Bruta</td>
-            <td>{hit.remuneración_bruta_mensual}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Viáticos</td>
-            <td>{`${hit.viáticos} ${hit.unidad_monetaria}`}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Asignaciones</td>
-            <td>{hit.asignaciones}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Horas</td>
-            <td>{`Diurnas: ${hit.horas_diurnas}, Nocturnas: ${hit.horas_nocturnas}, Festivas: ${hit.horas_festivas}`}</td>
-          </tr>
-          <tr hidden={isCompact}>
-            <td className="font-bold">Observaciones</td>
-            <td>{hit.observaciones}</td>
-          </tr>
-          <tr>
-            {isCompact ? (
-              <td colSpan={2}>
-                Desde el{" "}
-                <span className="font-semibold">{hit.fecha_ingreso}</span> hasta
-                el <span className="font-semibold">{hit.fecha_término}</span>
-              </td>
-            ) : (
-              <td colSpan={2} className="text-center">
-                Datos obtenidos el{" "}
-                <span className="font-semibold">{hit.fecha_publicación}</span>
-              </td>
-            )}
-          </tr>
-        </tbody>
-      </table>
+      <div className="divide-y space-y-1">
+        <p className="text-xl">
+          <strong>{hit.nombre}</strong>
+        </p>
+        <p className="flex items-start gap-1">
+          <Calendar /> {`${hit.mes} ${hit.año}`}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Región</strong>
+          {hit.región}
+        </p>
+        <p className="flex justify-between">
+          <strong>Organismo</strong>
+          {hit.nombre_organismo}
+        </p>
+        <p className="flex justify-between">
+          <strong>Cargo</strong>
+          {hit.tipo_cargo}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Calificación Profesional</strong>
+          {hit.tipo_calificación_profesional}
+        </p>
+        <p className="flex justify-between">
+          <strong>Tipo</strong>
+          {hit.tipo_contrato}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Ingreso</strong>
+          {hit.fecha_ingreso}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Egreso</strong>
+          {hit.fecha_egreso}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Remuneración Liq.</strong>
+          {`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}
+        </p>
+        <p className="flex justify-between">
+          <strong>Remuneración Bruta</strong>
+          {hit.remuneración_bruta_mensual}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Viáticos</strong>
+          {`${hit.viáticos} ${hit.unidad_monetaria}`}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Asignaciones</strong>
+          {hit.asignaciones}
+        </p>
+        <p className={isCompact ? "hidden" : "flex justify-between"}>
+          <strong>Horas</strong>
+          {`Diurnas: ${hit.horas_diurnas}, Nocturnas: ${hit.horas_nocturnas}, Festivas: ${hit.horas_festivas}`}
+        </p>
+        <p
+          className={
+            isCompact ? "hidden" : "flex justify-between text-right gap-4"
+          }
+        >
+          <strong>Observaciones</strong>
+          {hit.observaciones}
+        </p>
+
+        {isCompact ? (
+          <p className="text-center">
+            Desde el <span className="font-semibold">{hit.fecha_ingreso}</span>{" "}
+            hasta el <span className="font-semibold">{hit.fecha_término}</span>
+          </p>
+        ) : (
+          <p className="text-center">
+            Datos obtenidos el{" "}
+            <span className="font-semibold">{hit.fecha_publicación}</span>
+          </p>
+        )}
+      </div>
       <div className="grid grid-cols-2 pt-4">{buttonComponent}</div>
-    </div>
+    </section>
   );
 }
 

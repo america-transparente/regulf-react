@@ -26,12 +26,13 @@ function Searchbox(props: UseSearchBoxProps) {
       <SearchIcon />
       <input
         className="w-full py-2"
-        type="text"
+        type="search"
         placeholder="Buscar funcionarios"
         onChange={(e) => setDebouncedSearchQuery(e.target.value)}
         value={debouncedSearchQuery}
       />
       <button
+        aria-label="Limpiar busqueda"
         className="p-1"
         onClick={() => {
           clear();

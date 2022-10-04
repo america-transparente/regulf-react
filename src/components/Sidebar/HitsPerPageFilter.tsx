@@ -50,6 +50,7 @@ function HitsPerPageFilter({ config }: Props) {
               <Button
                 className="text-primary flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label="Cantidad de resultados cargados por pagina"
               >
                 {selectedOption?.label} <ChevronUp />
               </Button>
@@ -57,6 +58,7 @@ function HitsPerPageFilter({ config }: Props) {
               <Button
                 className="flex gap-1 w-full justify-center items-center"
                 buttonType="filter"
+                aria-label="Cantidad de resultados cargados por pagina"
               >
                 {selectedOption?.label} <ChevronDown />
               </Button>

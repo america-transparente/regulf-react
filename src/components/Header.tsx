@@ -48,16 +48,21 @@ function Header({ title }: Props) {
           <h1 className="text-xl text-white font-extrabold italic font-poppins uppercase">
             {title}
           </h1>
-          <a href="https://americatransparente.org/" target="_blank">
+          <a
+            aria-label="Link a la página de la fundación América Transparente"
+            href="https://americatransparente.org/"
+            target="_blank"
+          >
             <img
               src={americatransparenteLogo}
               className="h-8"
-              alt="Logo de la fundacion America Transparente"
+              alt="Logo de la fundación América Transparente"
             />
           </a>
         </div>
         <div>
           <Button
+            aria-label="abrir menu de opciones para ayudar al proyecto"
             buttonType="primary"
             className="md:hidden px-2"
             onClick={() => setIsMenuOpen((prev) => !prev)}
