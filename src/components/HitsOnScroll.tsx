@@ -7,7 +7,8 @@ import {
   UseInfiniteHitsProps,
 } from "react-instantsearch-hooks-web";
 import Hit from "./Hit";
-import { formatName, formatRevenue, numberWithDots } from "../utils";
+import { formatName, formatRevenue } from "../utils";
+import AmericaTransparenteLogo from "../assets/americatransparente_logo_negro.png";
 
 interface Props {
   config?: UseInfiniteHitsProps;
@@ -71,7 +72,15 @@ function HitsOnScroll({ config }: Props) {
           <Hit hit={hit} />
         ))}
       </ul>
-      <div ref={targetRef} className="py-24"></div>
+      <div
+        ref={targetRef}
+        className="animate-pulse w-full flex justify-center h-full items-center min-h-[50vh]"
+      >
+        <img
+          src={AmericaTransparenteLogo}
+          alt="Logo de la Fundacion America Transparente"
+        />
+      </div>
     </section>
   );
 }

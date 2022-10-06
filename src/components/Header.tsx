@@ -48,15 +48,11 @@ function Header({ title }: Props) {
           <h1 className="text-xl text-white font-extrabold italic font-poppins uppercase">
             {title}
           </h1>
-          <a
-            aria-label="Link a la página de la fundación América Transparente"
-            href="https://americatransparente.org/"
-            target="_blank"
-          >
+          <a href="https://americatransparente.org/" target="_blank">
             <img
               src={americatransparenteLogo}
               className="h-8"
-              alt="Logo de la fundación América Transparente"
+              alt="Inicio de América Transparente"
             />
           </a>
         </div>
