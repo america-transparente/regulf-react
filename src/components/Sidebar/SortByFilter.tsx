@@ -15,7 +15,6 @@ interface Props {
 
 function SortByFilter({ config }: Props) {
   const { options, refine, currentRefinement } = useSortBy(config);
-  console.log(options);
   const defaultRefinement: string =
     options.find(({ value }) => value == currentRefinement)?.label ||
     "Ordenar por";

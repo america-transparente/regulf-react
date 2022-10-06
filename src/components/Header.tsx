@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import { MenuIcon } from "../components/icons";
 import Button from "./Button";
 import CancelIcon from "./icons/CancelIcon";
-import americatransparenteLogo from "../assets/americatransparente_logo.png";
+import logoWhite from "../assets/logo_white.webp";
 
 interface Props {
   title: string;
@@ -50,7 +50,7 @@ function Header({ title }: Props) {
           </h1>
           <a href="https://americatransparente.org/" target="_blank">
             <img
-              src={americatransparenteLogo}
+              src={logoWhite}
               className="h-8"
               alt="Inicio de América Transparente"
             />
