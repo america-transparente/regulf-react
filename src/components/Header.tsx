@@ -20,7 +20,7 @@ function MenuButtons() {
     <div className="flex gap-4 flex-col md:flex-row">
       <Button
         buttonType="primary"
-        href="https://app.reveniu.com/checkout-custom-link/BYxZp272P6IlcjIDPMaBuuZrGq1CezOh"
+        href="https://app.reveniu.com/checkout-custom-link/guYWYTIWJqCUnNtZQRdIzpE3DFkAXtd1"
         target="_blank"
         className="text-center flex-auto"
       >

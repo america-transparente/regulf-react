@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSearchBox, UseSearchBoxProps } from "react-instantsearch-hooks-web";
-import Button from "./Button";
 import { CancelIcon, SearchIcon } from "../components/icons";
 
 function Searchbox(props: UseSearchBoxProps) {
@@ -9,7 +8,6 @@ function Searchbox(props: UseSearchBoxProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
 
-  //
   useEffect(() => {
     const timer = setTimeout(() => setSearchQuery(debouncedSearchQuery), 150);
     return () => clearTimeout(timer);
