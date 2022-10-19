@@ -44,6 +44,7 @@ function Hit({ hit }: any) {
       <Modal
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
+        title={hit.nombre}
         content={
           <HitContent
             hit={hit}

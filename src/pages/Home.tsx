@@ -4,9 +4,24 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import HitsOnScroll from "../components/HitsOnScroll";
 import Searchbox from "../components/Searchbox";
+import DonationCard from "../components/DonationCard";
+import Modal from "../components/Modal";
 
 function Home() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDonationCardOpen, setIsDonationCardOpen] = useState(true);
+
+  // this is the first time or more than 2 hours since
+  if (
+    !localStorage.alreadyAnswered &&
+    (!localStorage.firstVisit ||
+      localStorage.firstVisit >= Date.now() + 1800000)
+  ) {
+    // Start the user segment popup
+    setIsDonationCardOpen(true);
+
+    localStorage.firstVisit = Date.now();
+  }
 
   return (
     <>
@@ -27,6 +42,12 @@ function Home() {
         </section>
         <HitsOnScroll />
       </main>
+      <Modal
+        title="Necesitamos pedirte algo."
+        content={<DonationCard />}
+        isOpen={isDonationCardOpen}
+        setIsOpen={setIsDonationCardOpen}
+      />
     </>
   );
 }

@@ -1,9 +1,10 @@
 import { ReactNode, Dispatch } from "react";
 import { Dialog } from "@headlessui/react";
+import { CancelIcon } from "./icons";
+import Button from "./Button";
 
 interface Props {
   title?: string;
-  description?: string;
   content: ReactNode;
   isOpen: boolean;
   setIsOpen: Dispatch<React.SetStateAction<boolean>>; // setter
@@ -13,7 +14,7 @@ interface Props {
 /**
  * Pass a useState with the modal state
  */
-function Modal({ title, description, content, setIsOpen, isOpen }: Props) {
+function Modal({ title, content, setIsOpen, isOpen }: Props) {
   return (
     <Dialog
       open={isOpen}
@@ -21,7 +22,19 @@ function Modal({ title, description, content, setIsOpen, isOpen }: Props) {
       className="relative z-50"
     >
       <div className="fixed inset-0 bg-black/30 flex items-center justify-center p-4">
-        <Dialog.Panel>{content}</Dialog.Panel>
+        <Dialog.Panel className="bg-white rounded-2xl">
+          <div className="w-full flex justify-between pt-2 px-4 items-center">
+            <h3 className="font-extrabold text-2xl text-font">{title}</h3>
+            <Button
+              buttonType="primary"
+              className="px-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <CancelIcon />
+            </Button>
+          </div>
+          <div>{content}</div>
+        </Dialog.Panel>
       </div>
     </Dialog>
   );
