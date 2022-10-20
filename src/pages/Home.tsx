@@ -9,7 +9,7 @@ import Modal from "../components/Modal";
 
 function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDonationCardOpen, setIsDonationCardOpen] = useState(true);
+  const [isDonationCardOpen, setIsDonationCardOpen] = useState(false);
 
   // this is the first time or more than 2 hours since
   if (
