@@ -11,17 +11,17 @@ function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDonationCardOpen, setIsDonationCardOpen] = useState(false);
 
-  // this is the first time or more than 2 hours since
-  if (
-    !localStorage.alreadyAnswered &&
-    (!localStorage.firstVisit ||
-      localStorage.firstVisit >= Date.now() + 1800000)
-  ) {
-    // Start the user segment popup
-    setIsDonationCardOpen(true);
+  // // this is the first time or more than 2 hours since
+  // if (
+  //   !localStorage.alreadyAnswered &&
+  //   (!localStorage.firstVisit ||
+  //     localStorage.firstVisit >= Date.now() + 1800000)
+  // ) {
+  //   // Start the user segment popup
+  //   setIsDonationCardOpen(true);
 
-    localStorage.firstVisit = Date.now();
-  }
+  //   localStorage.firstVisit = Date.now();
+  // }
 
   return (
     <>
