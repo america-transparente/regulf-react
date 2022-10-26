@@ -1,5 +1,5 @@
+import { Button } from "@america-transparente/ui/core";
 import logoBlack from "../assets/logo_black.webp";
-import Button from "./Button";
 
 function DonationCard() {
   return (
@@ -25,10 +25,10 @@ function DonationCard() {
           alt="Logo de la fundacion América Transparente"
           className="col-start-2 h-12 place-self-end"
         />
-        <Button buttonType="primary" href="">
+        <Button href="" color="primary-rl" primary={true}>
           Donar ahora.
         </Button>
-        <Button buttonType="primary" href="">
+        <Button href="" color="primary-rl" primary={true}>
           Hazte socio.
         </Button>
       </div>

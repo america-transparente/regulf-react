@@ -1,54 +1,42 @@
-import { useState } from "react";
-import { FilterIcon } from "../components/icons";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import HitsOnScroll from "../components/HitsOnScroll";
-import Searchbox from "../components/Searchbox";
-import DonationCard from "../components/DonationCard";
-import Modal from "../components/Modal";
+import { Header } from "@america-transparente/ui/core";
+import { Provider, SearchBar } from "@america-transparente/ui/search";
+import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
+import { Filters, Results } from "../components";
+import logoWhite from "../assets/logo_white.webp";
 
 function Home() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDonationCardOpen, setIsDonationCardOpen] = useState(false);
-
-  // // this is the first time or more than 2 hours since
-  // if (
-  //   !localStorage.alreadyAnswered &&
-  //   (!localStorage.firstVisit ||
-  //     localStorage.firstVisit >= Date.now() + 1800000)
-  // ) {
-  //   // Start the user segment popup
-  //   setIsDonationCardOpen(true);
-
-  //   localStorage.firstVisit = Date.now();
-  // }
+  const searchClient = instantMeiliSearch(
+    "https://api.reguleque.cl",
+    "1fadde29df3f086cba5cae2c43a3e68883df5388f2e1c91e8549c470d60dbba9", // Public Search API Key
+    { keepZeroFacets: true }
+  );
 
   return (
-    <>
-      <Header title="Reguleque" />
-      <main className="mx-auto max-w-6xl px-4 text-font font">
-        <section className="sticky top-0 pt-4 bg-gray-100/90 bg-clip-padding backdrop-filter backdrop-blur-sm">
-          <div className="flex flex-row items-center space-x-4 pb-4 lg:pb-0">
-            <Searchbox />
-            <button
-              aria-label="Abrir filtros de busqueda"
-              className="p-2 bg-white rounded-2xl shadow-md lg:hidden"
-              onClick={() => setIsSidebarOpen((prev) => !prev)}
-            >
-              <FilterIcon />
-            </button>
-          </div>
-          <Sidebar isOpen={isSidebarOpen} />
-        </section>
-        <HitsOnScroll />
-      </main>
-      <Modal
-        title="Necesitamos pedirte algo."
-        content={<DonationCard />}
-        isOpen={isDonationCardOpen}
-        setIsOpen={setIsDonationCardOpen}
+    <Provider searchClient={searchClient} indexName="reguleque">
+      <Header
+        title="Reguleque"
+        color="primary-rl"
+        image={
+          <a
+            className="hidden md:flex"
+            href="https://americatransparente.org/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={logoWhite}
+              alt="Inicio de América Transparente"
+              className="h-8"
+            />
+          </a>
+        }
       />
-    </>
+      <main className="mx-auto max-w-6xl px-4 text-font font space-y-4 my-4">
+        <SearchBar />
+        <Filters />
+        <Results />
+      </main>
+    </Provider>
   );
 }
 

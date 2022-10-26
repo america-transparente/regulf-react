@@ -6,9 +6,9 @@ import {
   useInfiniteHits,
   UseInfiniteHitsProps,
 } from "react-instantsearch-hooks-web";
-import Hit from "./Hit";
 import { formatName, formatRevenue } from "../utils";
 import logoBlack from "../assets/logo_black.webp";
+import HitCard from "./HitCard";
 
 interface Props {
   config?: UseInfiniteHitsProps;
@@ -39,47 +39,47 @@ const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) => {
   }));
 };
 
-function HitsOnScroll({ config }: Props) {
-  const { hits, results, showMore, isLastPage } = useInfiniteHits({
+function Hits({ config }: Props) {
+  const { hits, showMore, isLastPage } = useInfiniteHits({
     ...config,
     transformItems: tidyItems,
   });
 
-  const targetRef = useRef(null);
-  const showHitsOnScroll = (entries: any) => {
-    const [targetRefEntry] = entries;
-    if (!isLastPage) targetRefEntry.isIntersecting && showMore(); // when targetRef element visible trigger showMore
-  };
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1, // percentage of how much the targetRef element is visible for showHitsOnScroll to trigger
-  };
+  // const targetRef = useRef(null);
+  // const showHitsOnScroll = (entries: any) => {
+  //   const [targetRefEntry] = entries;
+  //   if (!isLastPage) targetRefEntry.isIntersecting && showMore(); // when targetRef element visible trigger showMore
+  // };
+  // const options = {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold: 0.1, // percentage of how much the targetRef element is visible for showHitsOnScroll to trigger
+  // };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(showHitsOnScroll, options);
-    const currentTarget = targetRef.current;
-    currentTarget && observer.observe(currentTarget);
-    return () => {
-      currentTarget && observer.unobserve(currentTarget);
-    };
-  }, [targetRef, options]);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(showHitsOnScroll, options);
+  //   const currentTarget = targetRef.current;
+  //   currentTarget && observer.observe(currentTarget);
+  //   return () => {
+  //     currentTarget && observer.unobserve(currentTarget);
+  //   };
+  // }, [targetRef, options]);
 
   return (
     <section>
       <ul className="grid grid-cols-1m md:grid-cols-2 lg:grid-cols-3 gap-4">
         {hits.map((hit, index) => (
-          <Hit key={index} hit={hit} />
+          <HitCard key={index} hit={hit} />
         ))}
       </ul>
-      <div
+      {/* <div
         ref={targetRef}
         className="animate-pulse w-full flex justify-center h-full items-center min-h-[50vh]"
       >
         <img src={logoBlack} alt="Logo de la Fundacion America Transparente" />
-      </div>
+      </div> */}
     </section>
   );
 }
 
-export default HitsOnScroll;
+export default Hits;
