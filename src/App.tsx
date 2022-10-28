@@ -14,8 +14,6 @@ function App() {
       <Home />
     </InstantSearch>
   );
-
-  // return <Home />;
 }
 
 export default App;

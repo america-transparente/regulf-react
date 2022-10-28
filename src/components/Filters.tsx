@@ -2,7 +2,7 @@ import { SearchFilter, SearchSortBy } from "@america-transparente/ui/search";
 
 function Filters() {
   return (
-    <div className="grid grid-cols-5 gap-4 overflow-auto">
+    <div className="flex pb-2 sm:pb-0 sm:grid grid-cols-5 gap-4 overflow-auto">
       <SearchSortBy
         config={{
           items: [
