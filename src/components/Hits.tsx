@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import {
   useInfiniteHits,
   UseInfiniteHitsProps,
-} from "react-instantsearch-hooks-web";
+} from "@america-transparente/ui/search";
 import { formatName, formatRevenue } from "../utils";
 import logoBlack from "../assets/logo_black.webp";
 import HitCard from "./HitCard";

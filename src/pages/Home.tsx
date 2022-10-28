@@ -13,24 +13,7 @@ function Home() {
 
   return (
     <Provider searchClient={searchClient} indexName="reguleque">
-      <Header
-        title="Reguleque"
-        color="primary-rl"
-        image={
-          <a
-            className="hidden md:flex"
-            href="https://americatransparente.org/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={logoWhite}
-              alt="Inicio de América Transparente"
-              className="h-8"
-            />
-          </a>
-        }
-      />
+      <Header title="Reguleque" color="primary-rl" imagePath={logoWhite} />
       <main className="mx-auto max-w-6xl px-4 text-font font space-y-4 my-4">
         <SearchBar />
         <Filters />
