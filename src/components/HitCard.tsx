@@ -71,7 +71,75 @@ function HitCard({ hit }: any) {
                 <XMarkIcon className="h-6 w-6 text-black" />
               </Button>
             </div>
-            {hit.nombre}
+            <div className="font-semibold space-y-2 max-h-[75vh] md:max-h-full overflow-auto">
+              <p className="flex">
+                <CalendarDaysIcon className="h-6 w-6" />
+                {`${hit.mes} ${hit.año}`}
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Región</span>
+                <span>{hit.región}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Organismo</span>
+                <span>{hit.nombre_organismo}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Cargo</span>
+                <span>{hit.tipo_cargo}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">
+                  Calificación Profesional
+                </span>
+                <span>{hit.tipo_calificación_profesional}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Tipo</span>
+                <span>{hit.tipo_contrato}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Ingreso</span>
+                <span>{hit.fecha_ingreso}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Egreso</span>
+                <span>{hit.fecha_egreso}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Remuneración Liquida</span>
+                <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Remuneración Bruta</span>
+                <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Viáticos</span>
+                <span>
+                  {hit.viáticos
+                    ? `${hit.viáticos} ${hit.unidad_monetaria}`
+                    : "No informados"}
+                </span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Asignaciones</span>
+                <span>{hit.asignaciones}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Horas</span>
+                <span>{`Diurnas: ${hit.horas_diurnas}, Nocturnas: ${hit.horas_nocturnas}, Festivas: ${hit.horas_festivas}`}</span>
+              </p>
+              <p className="grid grid-cols-2">
+                <span className="text-grayscale-4">Observaciones</span>
+                <span>{hit.observaciones}</span>
+              </p>
+              <p className="text-center">
+                Desde el{" "}
+                <span className="font-semibold">{hit.fecha_ingreso}</span> hasta
+                el <span className="font-semibold">{hit.fecha_término}</span>
+              </p>
+            </div>
           </Dialog.Panel>
         </div>
       </Dialog>

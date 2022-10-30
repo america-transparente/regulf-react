@@ -21,6 +21,7 @@ const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) => {
     tipo_calificación_profesional: formatName(
       item.tipo_calificación_profesional
     ),
+    región: formatName(item.región),
     tipo_cargo: formatName(item.tipo_cargo),
     tipo_contrato:
       item.tipo_contrato?.charAt?.(0)?.toUpperCase?.() +
