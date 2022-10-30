@@ -132,7 +132,7 @@ function HitCard({ hit }: any) {
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-4">Observaciones</span>
-                <span>{hit.observaciones}</span>
+                <span>{hit.observaciones || "No hay observaciones"}</span>
               </p>
               <p className="text-center">
                 Desde el{" "}
