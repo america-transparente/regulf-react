@@ -67,6 +67,7 @@ function HitCard({ hit }: any) {
                 icon={true}
                 onClick={() => setIsModalOpen(false)}
                 className="self-start p-1"
+                aria-label="Cerrar"
               >
                 <XMarkIcon className="h-6 w-6 text-black" />
               </Button>
