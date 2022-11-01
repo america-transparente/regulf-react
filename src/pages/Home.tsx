@@ -26,7 +26,7 @@ function Home() {
     <Provider searchClient={searchClient} indexName="reguleque">
       <Header title="Reguleque" color="primary-rl" imagePath={logoWhite} />
       <main className="mx-auto max-w-6xl px-4 text-font font pb-4">
-        <div className="top-0 sticky flex flex-col gap-4 bg-background-light/80 py-4">
+        <div className="top-0 sticky flex flex-col gap-4 bg-background-light/80 py-4 z-50">
           <SearchBar />
           <Filters />
         </div>
