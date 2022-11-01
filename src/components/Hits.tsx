@@ -73,12 +73,6 @@ function Hits({ config }: Props) {
           <HitCard key={index} hit={hit} />
         ))}
       </ul>
-      {/* <div
-        ref={targetRef}
-        className="animate-pulse w-full flex justify-center h-full items-center min-h-[50vh]"
-      >
-        <img src={logoBlack} alt="Logo de la Fundacion America Transparente" />
-      </div> */}
     </section>
   );
 }
