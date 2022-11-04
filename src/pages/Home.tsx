@@ -15,10 +15,12 @@ function Home() {
 
   const [showDonationCard, setShowDonationCard] = useState(false);
 
+  const halfAnHourInMilliseconds = 30 * 60000;
+
   useEffect(() => {
     const donationPopup = setTimeout(() => {
       setShowDonationCard(true);
-    }, 5000);
+    }, halfAnHourInMilliseconds);
     return () => clearInterval(donationPopup);
   }, []);
 
