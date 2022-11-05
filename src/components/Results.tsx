@@ -55,13 +55,14 @@ function Hits({ config }: Props) {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.1, // percentage of how much the targetRef element is visible for fetchHits to trigger
+    threshold: 0.8, // percentage of how much the targetRef element is visible for fetchHits to trigger
   };
 
   useEffect(() => {
     const observer = new IntersectionObserver(fetchHits, options);
     const currentTarget = targetRef.current;
     currentTarget && observer.observe(currentTarget);
+    console.log(hits.length % 3);
     return () => {
       currentTarget && observer.unobserve(currentTarget);
     };
@@ -73,7 +74,12 @@ function Hits({ config }: Props) {
         {hits.map((hit, index) => (
           <HitCard key={index} hit={hit} />
         ))}
-        {hits.length > 0 && (
+        {(hits.length % 3 == 2 || hits.length % 3 == 1) && (
+          <li>
+            <SkeletonCard />
+          </li>
+        )}
+        {hits.length % 3 == 1 && (
           <li>
             <SkeletonCard />
           </li>
