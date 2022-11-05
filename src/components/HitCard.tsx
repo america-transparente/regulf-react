@@ -78,45 +78,45 @@ function HitCard({ hit }: any) {
                 {`${hit.mes} ${hit.año}`}
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Región</span>
+                <span className="text-grayscale-5">Región</span>
                 <span>{hit.región}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Organismo</span>
+                <span className="text-grayscale-5">Organismo</span>
                 <span>{hit.nombre_organismo}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Cargo</span>
+                <span className="text-grayscale-5">Cargo</span>
                 <span>{hit.tipo_cargo}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">
+                <span className="text-grayscale-5">
                   Calificación Profesional
                 </span>
                 <span>{hit.tipo_calificación_profesional}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Tipo</span>
+                <span className="text-grayscale-5">Tipo</span>
                 <span>{hit.tipo_contrato}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Ingreso</span>
+                <span className="text-grayscale-5">Ingreso</span>
                 <span>{hit.fecha_ingreso}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Egreso</span>
+                <span className="text-grayscale-5">Egreso</span>
                 <span>{hit.fecha_egreso}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Remuneración Liquida</span>
+                <span className="text-grayscale-5">Remuneración Liquida</span>
                 <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Remuneración Bruta</span>
+                <span className="text-grayscale-5">Remuneración Bruta</span>
                 <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Viáticos</span>
+                <span className="text-grayscale-5">Viáticos</span>
                 <span>
                   {hit.viáticos
                     ? `${hit.viáticos} ${hit.unidad_monetaria}`
@@ -124,15 +124,15 @@ function HitCard({ hit }: any) {
                 </span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Asignaciones</span>
+                <span className="text-grayscale-5">Asignaciones</span>
                 <span>{hit.asignaciones}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Horas</span>
+                <span className="text-grayscale-5">Horas</span>
                 <span>{`Diurnas: ${hit.horas_diurnas}, Nocturnas: ${hit.horas_nocturnas}, Festivas: ${hit.horas_festivas}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-4">Observaciones</span>
+                <span className="text-grayscale-5">Observaciones</span>
                 <span>{hit.observaciones || "No hay observaciones"}</span>
               </p>
               <p className="text-center">
