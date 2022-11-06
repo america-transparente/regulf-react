@@ -72,7 +72,9 @@ function Hits({ config }: Props) {
     <section>
       <ul className="grid grid-cols-1m md:grid-cols-2 lg:grid-cols-3 gap-4">
         {hits.map((hit, index) => (
-          <HitCard key={index} hit={hit} />
+          <li>
+            <HitCard key={index} hit={hit} />
+          </li>
         ))}
         {(hits.length % 3 == 2 || hits.length % 3 == 1) && (
           <li>

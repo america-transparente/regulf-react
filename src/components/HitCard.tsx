@@ -44,6 +44,7 @@ function HitCard({ hit }: any) {
               color="primary-rl"
               onClick={() => setIsModalOpen(true)}
               icon={true}
+              aria-label="Más información"
             >
               <PlusIcon className="h-6 w-6 stroke-2" />
             </Button>
