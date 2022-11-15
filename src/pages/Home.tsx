@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import { Header } from "@america-transparente/ui/core";
 import { Provider, SearchBar } from "@america-transparente/ui/search";
 import DonationCard from "../components/DonationCard";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
-import { Filters, Results } from "../components";
+import Filters from "../components/Filters";
+const Results = lazy(() => import("../components/Results"));
 import logoWhite from "../assets/logo_white.webp";
 
 function Home() {
@@ -32,7 +33,9 @@ function Home() {
           <SearchBar placeholder="Buscar funcionarios" />
           <Filters />
         </div>
-        <Results />
+        <Suspense fallback={<p className="text-center">Cargando...</p>}>
+          <Results />
+        </Suspense>
       </main>
       {showDonationCard && (
         <DonationCard

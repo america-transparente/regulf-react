@@ -7,7 +7,6 @@ import {
   UseInfiniteHitsProps,
 } from "@america-transparente/ui/search";
 import { formatName, formatRevenue } from "../utils";
-import logoBlack from "../assets/logo_black.webp";
 import HitCard from "./HitCard";
 import SkeletonCard from "./SkeletonCard";
 
@@ -42,7 +41,7 @@ const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) => {
 };
 
 function Hits({ config }: Props) {
-  const { hits, showMore, isLastPage } = useInfiniteHits({
+  const { hits, showMore, isLastPage, results } = useInfiniteHits({
     ...config,
     transformItems: tidyItems,
   });
@@ -62,7 +61,7 @@ function Hits({ config }: Props) {
     const observer = new IntersectionObserver(fetchHits, options);
     const currentTarget = targetRef.current;
     currentTarget && observer.observe(currentTarget);
-    console.log(hits.length % 3);
+
     return () => {
       currentTarget && observer.unobserve(currentTarget);
     };
@@ -87,14 +86,16 @@ function Hits({ config }: Props) {
           </li>
         )}
       </ul>
-      <div
-        ref={targetRef}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
-      >
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-      </div>
+      {results && results.nbHits > 20 && !isLastPage && (
+        <div
+          ref={targetRef}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+        >
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </div>
+      )}
     </section>
   );
 }

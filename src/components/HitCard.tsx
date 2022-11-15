@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import {
   XMarkIcon,
   CurrencyDollarIcon,
@@ -9,8 +9,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
 import { Button, Card } from "@america-transparente/ui/core";
+import Hit from "../interface/hit";
 
-function HitCard({ hit }: any) {
+interface HitCardProps {
+  hit: Hit;
+}
+
+function HitCard({ hit }: HitCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -148,4 +153,4 @@ function HitCard({ hit }: any) {
   );
 }
 
-export default HitCard;
+export default memo(HitCard);
