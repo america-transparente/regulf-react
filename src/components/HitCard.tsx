@@ -72,7 +72,7 @@ function HitCard({ hit }: any) {
                 <XMarkIcon className="h-6 w-6 text-black" />
               </Button>
             </div>
-            <div className="font-semibold space-y-2 max-h-[75vh] md:max-h-full overflow-auto">
+            <div className="font-semibold space-y-2 max-h-[60vh] md:max-h-full overflow-auto">
               <p className="flex">
                 <CalendarDaysIcon className="h-6 w-6" />
                 {`${hit.mes} ${hit.año}`}
