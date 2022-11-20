@@ -10,6 +10,7 @@ import {
 import { Dialog } from "@headlessui/react";
 import { Button, Card } from "@america-transparente/ui/core";
 import Hit from "../interface/hit";
+import { formatDate } from "../utils";
 
 interface HitCardProps {
   hit: Hit;
@@ -26,7 +27,7 @@ function HitCard({ hit }: HitCardProps) {
             <div className="flex items-start gap-1 text-xl font-bold">
               <CurrencyDollarIcon className="h-6 w-6" />
               <div className="-space-y-1">
-                <p>{hit.remuneración_bruta_mensual}</p>
+                <p>{hit.remuneración_bruta_mensual || "No reporta"}</p>
                 <p className="text-xs">Remuneración Bruta</p>
               </div>
             </div>
@@ -36,11 +37,11 @@ function HitCard({ hit }: HitCardProps) {
             </div>
             <div className=" flex items-start gap-1 font-bold">
               <BuildingLibraryIcon className="h-6 w-6 shrink-0" />
-              <p>{hit.nombre_organismo}</p>
+              <p>{hit.nombre_organismo || "No reporta"}</p>
             </div>
             <div className=" flex items-start gap-1 font-bold">
               <BriefcaseIcon className="h-6 w-6 shrink-0" />
-              <p>{hit.tipo_cargo}</p>
+              <p>{hit.tipo_cargo || "No reporta"}</p>
             </div>
           </div>
           <div className="flex w-full justify-end">
@@ -106,11 +107,11 @@ function HitCard({ hit }: HitCardProps) {
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Ingreso</span>
-                <span>{hit.fecha_ingreso}</span>
+                <span>{formatDate(hit.fecha_ingreso)}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Egreso</span>
-                <span>{hit.fecha_egreso}</span>
+                <span>{formatDate(hit.fecha_egreso)}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Remuneración Liquida</span>
@@ -125,20 +126,20 @@ function HitCard({ hit }: HitCardProps) {
                 <span>
                   {hit.viáticos
                     ? `${hit.viáticos} ${hit.unidad_monetaria}`
-                    : "No informados"}
+                    : "No reporta"}
                 </span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Asignaciones</span>
-                <span>{hit.asignaciones || "No informadas"}</span>
+                <span>{hit.asignaciones || "No reporta"}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Horas</span>
                 <span>{`Diurnas: ${
-                  hit.horas_diurnas || "No informadas"
+                  hit.horas_diurnas || "No reporta"
                 }, Nocturnas: ${
-                  hit.horas_nocturnas || "No informadas"
-                }, Festivas: ${hit.horas_festivas || "No informadas"}`}</span>
+                  hit.horas_nocturnas || "No reporta"
+                }, Festivas: ${hit.horas_festivas || "No reporta"}`}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Observaciones</span>
@@ -146,8 +147,13 @@ function HitCard({ hit }: HitCardProps) {
               </p>
               <p className="text-center">
                 Desde el{" "}
-                <span className="font-semibold">{hit.fecha_ingreso}</span> hasta
-                el <span className="font-semibold">{hit.fecha_término}</span>
+                <span className="font-semibold">
+                  {formatDate(hit.fecha_ingreso)}
+                </span>{" "}
+                hasta el{" "}
+                <span className="font-semibold">
+                  {formatDate(hit.fecha_término)}
+                </span>
               </p>
             </div>
           </Dialog.Panel>
