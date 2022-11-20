@@ -75,12 +75,12 @@ function Hits({ config }: Props) {
             <HitCard hit={hit} />
           </li>
         ))}
-        {(hits.length % 3 == 2 || hits.length % 3 == 1) && (
+        {((!isLastPage && hits.length % 3 == 2) || hits.length % 3 == 1) && (
           <li>
             <SkeletonCard />
           </li>
         )}
-        {hits.length % 3 == 1 && (
+        {!isLastPage && hits.length % 3 == 1 && (
           <li>
             <SkeletonCard />
           </li>

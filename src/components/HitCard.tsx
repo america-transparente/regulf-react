@@ -130,11 +130,15 @@ function HitCard({ hit }: HitCardProps) {
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Asignaciones</span>
-                <span>{hit.asignaciones}</span>
+                <span>{hit.asignaciones || "No informadas"}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Horas</span>
-                <span>{`Diurnas: ${hit.horas_diurnas}, Nocturnas: ${hit.horas_nocturnas}, Festivas: ${hit.horas_festivas}`}</span>
+                <span>{`Diurnas: ${
+                  hit.horas_diurnas || "No informadas"
+                }, Nocturnas: ${
+                  hit.horas_nocturnas || "No informadas"
+                }, Festivas: ${hit.horas_festivas || "No informadas"}`}</span>
               </p>
               <p className="grid grid-cols-2">
                 <span className="text-grayscale-5">Observaciones</span>
