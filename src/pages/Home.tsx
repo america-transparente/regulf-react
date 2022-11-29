@@ -5,7 +5,7 @@ import DonationCard from "../components/DonationCard";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import Filters from "../components/Filters";
 const Results = lazy(() => import("../components/Results"));
-import logoWhite from "../assets/logo_white.webp";
+import logo from "../assets/at_logo.webp";
 
 function Home() {
   const searchClient = instantMeiliSearch(
@@ -27,9 +27,13 @@ function Home() {
 
   return (
     <Provider searchClient={searchClient} indexName="reguleque">
-      <Header title="Reguleque" imagePath={logoWhite} />
+      <Header
+        title="Reguleque"
+        description="Reguleque es un buscador de funcionarios públicos de Chile, basado en distintas fuentes de transparencia estatal."
+        imagePath={logo}
+      />
       <main className="mx-auto max-w-6xl px-4 text-font font pb-4">
-        <div className="top-0 sticky flex flex-col gap-4 bg-grayscale-3/80 py-4 z-50">
+        <div className="top-0 sticky flex flex-col gap-4 bg-light-neutral-300/80 dark:bg-dark-neutral-300/80 py-4 z-50 bg-clip-padding backdrop-filter backdrop-blur-sm">
           <SearchBar placeholder="Buscar funcionarios" />
           <Filters />
         </div>

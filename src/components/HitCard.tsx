@@ -21,9 +21,12 @@ function HitCard({ hit }: HitCardProps) {
 
   return (
     <>
-      <Card title={hit.nombre}>
-        <section className="flex h-full flex-col justify-between">
-          <div className="space-y-2 text-neutral-600">
+      <Card>
+        <section className="flex h-full flex-col justify-between p-4 text-light-text-200 dark:text-dark-text-200">
+          <div className="space-y-2">
+            <h2 className="text-xl font-bold text-light-text-100 dark:text-dark-text-100">
+              {hit.nombre}
+            </h2>
             <div className="flex items-start gap-1 text-xl font-bold">
               <CurrencyDollarIcon className="h-6 w-6" />
               <div className="-space-y-1">
@@ -61,11 +64,14 @@ function HitCard({ hit }: HitCardProps) {
         onClose={() => setIsModalOpen(false)}
         className="relative z-50"
       >
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div
+          className="fixed inset-0 bg-black/30 bg-clip-padding backdrop-filter backdrop-blur-sm"
+          aria-hidden="true"
+        />
         <div className="fixed inset-0 m-4 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-lg rounded-2xl border-2 bg-white p-4">
+          <Dialog.Panel className="w-full max-w-lg rounded-2xl border-2 bg-light-neutral-200 dark:bg-dark-neutral-200 border-light-neutral-100 dark:border-dark-neutral-100 text-light-text-200 dark:text-dark-text-200 p-4">
             <div className="flex w-full items-center justify-between">
-              <Dialog.Title className="text-xl font-bold">
+              <Dialog.Title className="text-xl font-bold text-light-text-100 dark:text-dark-text-100">
                 {hit.nombre}
               </Dialog.Title>
               <Button
@@ -75,7 +81,7 @@ function HitCard({ hit }: HitCardProps) {
                 className="self-start p-1"
                 aria-label="Cerrar"
               >
-                <XMarkIcon className="h-6 w-6 text-black" />
+                <XMarkIcon className="h-6 w-6 text-black dark:text-white" />
               </Button>
             </div>
             <div className="font-semibold space-y-2 max-h-[60vh] md:max-h-full overflow-auto">
@@ -84,45 +90,63 @@ function HitCard({ hit }: HitCardProps) {
                 {`${hit.mes} ${hit.año}`}
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Región</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Región
+                </span>
                 <span>{hit.región}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Organismo</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Organismo
+                </span>
                 <span>{hit.nombre_organismo}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Cargo</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Cargo
+                </span>
                 <span>{hit.tipo_cargo}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">
+                <span className="text-light-text-100 dark:text-dark-text-100">
                   Calificación Profesional
                 </span>
                 <span>{hit.tipo_calificación_profesional}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Tipo</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Tipo
+                </span>
                 <span>{hit.tipo_contrato}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Ingreso</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Ingreso
+                </span>
                 <span>{formatDate(hit.fecha_ingreso)}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Egreso</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Egreso
+                </span>
                 <span>{formatDate(hit.fecha_egreso)}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Remuneración Liquida</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Remuneración Liquida
+                </span>
                 <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Remuneración Bruta</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Remuneración Bruta
+                </span>
                 <span>{`${hit.remuneración_líquida_mensual} ${hit.unidad_monetaria}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Viáticos</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Viáticos
+                </span>
                 <span>
                   {hit.viáticos
                     ? `${hit.viáticos} ${hit.unidad_monetaria}`
@@ -130,11 +154,15 @@ function HitCard({ hit }: HitCardProps) {
                 </span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Asignaciones</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Asignaciones
+                </span>
                 <span>{hit.asignaciones || "No reporta"}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Horas</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Horas
+                </span>
                 <span>{`Diurnas: ${
                   hit.horas_diurnas || "No reporta"
                 }, Nocturnas: ${
@@ -142,7 +170,9 @@ function HitCard({ hit }: HitCardProps) {
                 }, Festivas: ${hit.horas_festivas || "No reporta"}`}</span>
               </p>
               <p className="grid grid-cols-2">
-                <span className="text-grayscale-5">Observaciones</span>
+                <span className="text-light-text-100 dark:text-dark-text-100">
+                  Observaciones
+                </span>
                 <span>{hit.observaciones || "No hay observaciones"}</span>
               </p>
               <p className="text-center">

@@ -2,7 +2,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Dispatch } from "react";
 import { Dialog } from "@headlessui/react";
 import { Button } from "@america-transparente/ui/core";
-import logoBlack from "../assets/logo_black.webp";
+import logo from "../assets/at_logo.webp";
 
 interface DonationCardProps {
   showDonationCard: boolean;
@@ -52,7 +52,7 @@ function DonationCard({
             </p>
             <div className="flex justify-end">
               <img
-                src={logoBlack}
+                src={logo}
                 alt="Logo de la fundacion América Transparente"
                 className="h-10 md:h-12"
               />
