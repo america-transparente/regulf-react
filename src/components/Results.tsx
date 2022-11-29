@@ -1,10 +1,7 @@
-// @ts-nocheck
-// either Instantsearch doesn't have very good ts support or i don't know how to pass an Interface to their base hit
-
 import { useEffect, useRef } from "react";
 import {
   useInfiniteHits,
-  UseInfiniteHitsProps,
+  type UseInfiniteHitsProps,
 } from "@america-transparente/ui/search";
 import { formatName, formatRevenue } from "../utils";
 import HitCard from "./HitCard";
@@ -14,8 +11,8 @@ interface Props {
   config?: UseInfiniteHitsProps;
 }
 
-const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) => {
-  return items.map((item, index) => ({
+const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) =>
+  items.map((item, index) => ({
     ...item,
     nombre: formatName(item.nombre),
     tipo_calificación_profesional: formatName(
@@ -35,10 +32,9 @@ const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) => {
     remuneración_bruta_mensual: formatRevenue(item.remuneración_bruta_mensual),
     unidad_monetaria: item.unidad_monetaria?.toLowerCase?.(),
     viáticos: formatRevenue(item.viáticos ?? "Indeterminado"),
-    fecha_egreso: item.fecha_egreso ?? "Sigue trabajando",
+    fecha_egreso: item.fecha_egreso ?? "No reportado",
     position: index,
   }));
-};
 
 function Hits({ config }: Props) {
   const { hits, showMore, isLastPage, results } = useInfiniteHits({
@@ -69,7 +65,7 @@ function Hits({ config }: Props) {
 
   return (
     <section>
-      <ul className="grid grid-cols-1m md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="grid-cols-1m grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {hits.map((hit, index) => (
           <li key={index} className="flex">
             <HitCard hit={hit} />
@@ -89,7 +85,7 @@ function Hits({ config }: Props) {
       {results && results.nbHits > 20 && !isLastPage && (
         <div
           ref={targetRef}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+          className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
         >
           <SkeletonCard />
           <SkeletonCard />

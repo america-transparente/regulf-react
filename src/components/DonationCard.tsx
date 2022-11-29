@@ -19,11 +19,11 @@ function DonationCard({
       onClose={() => setShowDonationCard(false)}
       className="relative z-50"
     >
-      <div className="fixed inset-0 bg-black/30 flex items-center justify-center p-4">
+      <div className="fixed inset-0 flex items-center justify-center bg-black/30 p-4">
         <Dialog.Panel>
-          <div className="p-4 bg-white rounded-2xl max-w-2xl md:text-xl space-y-4 max-h-[75vh] overflow-auto">
-            <div className="flex justify-between items-center gap-4">
-              <p className="text-xl md:text-2xl font-extrabold">
+          <div className="max-h-[75vh] max-w-2xl space-y-4 overflow-auto rounded-2xl bg-white p-4 md:text-xl">
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xl font-extrabold md:text-2xl">
                 ¡Hola! Por favor no cierres este mensaje.
               </p>
               <Button
@@ -57,7 +57,7 @@ function DonationCard({
                 className="h-10 md:h-12"
               />
             </div>
-            <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
               <Button href="" color="primary-rl" primary={true}>
                 Donar ahora
               </Button>

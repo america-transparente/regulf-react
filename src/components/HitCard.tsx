@@ -65,11 +65,11 @@ function HitCard({ hit }: HitCardProps) {
         className="relative z-50"
       >
         <div
-          className="fixed inset-0 bg-black/30 bg-clip-padding backdrop-filter backdrop-blur-sm"
+          className="fixed inset-0 bg-black/30 bg-clip-padding backdrop-blur-sm backdrop-filter"
           aria-hidden="true"
         />
         <div className="fixed inset-0 m-4 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-lg rounded-2xl border-2 bg-light-neutral-200 dark:bg-dark-neutral-200 border-light-neutral-100 dark:border-dark-neutral-100 text-light-text-200 dark:text-dark-text-200 p-4">
+          <Dialog.Panel className="w-full max-w-lg rounded-2xl border-2 border-light-neutral-100 bg-light-neutral-200 p-4 text-light-text-200 dark:border-dark-neutral-100 dark:bg-dark-neutral-200 dark:text-dark-text-200">
             <div className="flex w-full items-center justify-between">
               <Dialog.Title className="text-xl font-bold text-light-text-100 dark:text-dark-text-100">
                 {hit.nombre}
@@ -84,7 +84,7 @@ function HitCard({ hit }: HitCardProps) {
                 <XMarkIcon className="h-6 w-6 text-black dark:text-white" />
               </Button>
             </div>
-            <div className="font-semibold space-y-2 max-h-[60vh] md:max-h-full overflow-auto">
+            <div className="max-h-[60vh] space-y-2 overflow-auto font-semibold md:max-h-full">
               <p className="flex">
                 <CalendarDaysIcon className="h-6 w-6" />
                 {`${hit.mes} ${hit.año}`}

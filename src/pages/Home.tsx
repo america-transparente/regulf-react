@@ -32,8 +32,8 @@ function Home() {
         description="Reguleque es un buscador de funcionarios públicos de Chile, basado en distintas fuentes de transparencia estatal."
         imagePath={logo}
       />
-      <main className="mx-auto max-w-6xl px-4 text-font font pb-4">
-        <div className="top-0 sticky flex flex-col gap-4 bg-light-neutral-300/80 dark:bg-dark-neutral-300/80 py-4 z-50 bg-clip-padding backdrop-filter backdrop-blur-sm">
+      <main className="text-font font mx-auto max-w-6xl px-4 pb-4">
+        <div className="sticky top-0 z-50 flex flex-col gap-4 bg-light-neutral-300/80 bg-clip-padding py-4 backdrop-blur-sm backdrop-filter dark:bg-dark-neutral-300/80">
           <SearchBar placeholder="Buscar funcionarios" />
           <Filters />
         </div>
