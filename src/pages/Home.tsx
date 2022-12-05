@@ -1,7 +1,7 @@
 import { useEffect, useState, Suspense, lazy } from "react";
 import { Header } from "@america-transparente/ui/core";
 import { SearchBar } from "@america-transparente/ui/search";
-import DonationCard from "../components/DonationCard";
+import { DonationCard } from "@america-transparente/ui/core";
 import Filters from "../components/Filters";
 const Results = lazy(() => import("../components/Results"));
 import logo from "../assets/at_logo.webp";
