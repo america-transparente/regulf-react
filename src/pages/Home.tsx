@@ -44,7 +44,13 @@ function Home() {
           <SearchBar placeholder="Buscar funcionarios" />
           <Filters />
         </div>
-        <Suspense fallback={<p className="text-center">Cargando...</p>}>
+        <Suspense
+          fallback={
+            <p className="text-center text-xl text-light-text-100 dark:text-dark-text-100">
+              Cargando...
+            </p>
+          }
+        >
           <Results />
         </Suspense>
       </main>

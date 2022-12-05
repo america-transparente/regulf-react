@@ -50,7 +50,7 @@ function Hits({ config }: Props) {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.8, // percentage of how much the targetRef element is visible for fetchHits to trigger
+    threshold: 0.1, // percentage of how much the targetRef element is visible for fetchHits to trigger
   };
 
   useEffect(() => {
