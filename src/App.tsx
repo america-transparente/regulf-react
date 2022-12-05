@@ -1,5 +1,6 @@
 import { InstantSearch } from "react-instantsearch-hooks-web";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
+import { Provider } from "@america-transparente/ui/search";
 import Home from "./pages/Home";
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
 
   return (
     <InstantSearch searchClient={searchClient} indexName="reguleque">
-      <Home />
+      <Provider searchClient={searchClient} indexName="reguleque">
+        <Home />
+      </Provider>
     </InstantSearch>
   );
 }
