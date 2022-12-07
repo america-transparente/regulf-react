@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<link
-			rel="icon"
-			href="https://americatransparente.org/wp-content/uploads/2021/06/cropped-logow1-192x192.png"
-			sizes="192x192"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- Primary Meta Tags -->
-		<title>Reguleque — Buscador de funcionarios públicos</title>
-		<meta name="title" content="Reguleque — Buscador de funcionarios públicos" />
-		<meta
-			name="description"
-			content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="https://americatransparente.org/wp-content/uploads/2021/06/cropped-logow1-192x192.png"
+      sizes="192x192"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>Reguleque — Buscador de funcionarios públicos</title>
+    <meta name="title" content="Reguleque | América Transparente" />
+    <meta
+      name="description"
+      content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
+    />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://buscador.reguleque.cl/" />
-		<meta
-			property="og:title"
-			content="Reguleque — Buscador de funcionarios públicos"
-		/>
-		<meta
-			property="og:description"
-			content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
-		/>
-		<meta property="og:image" content="https://i.imgur.com/AYBFjwD.png" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://buscador.reguleque.cl/" />
+    <meta property="og:title" content="Reguleque | América Transparente" />
+    <meta
+      property="og:description"
+      content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
+    />
+    <meta property="og:image" content="/rl_card.webp" />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://buscador.reguleque.cl/" />
-		<meta
-			property="twitter:title"
-			content="Reguleque — Buscador de funcionarios públicos"
-		/>
-		<meta
-			property="twitter:description"
-			content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
-		/>
-		<meta property="twitter:image" content="https://i.imgur.com/AYBFjwD.png" />
-	</head>
-	<body class="font-roboto bg-gray-100">
-		<div id="root"></div>
-		<script type="module" src="/src/main.tsx"></script>
-	</body>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://buscador.reguleque.cl/" />
+    <meta property="twitter:title" content="Reguleque | América Transparente" />
+    <meta
+      property="twitter:description"
+      content="Buscador para los sueldos de funcionarios públicos, proveído por la Fundación América Transparente."
+    />
+    <meta property="twitter:image" content="/rl_card.webp" />
+    <!-- <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script> -->
+  </head>
+  <body
+    class="bg-light-neutral-300 font-nunito antialiased dark:bg-dark-neutral-300"
+  >
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

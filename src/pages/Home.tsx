@@ -1,53 +1,65 @@
-import { useState } from "react";
-import { FilterIcon } from "../components/icons";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import HitsOnScroll from "../components/HitsOnScroll";
-import Searchbox from "../components/Searchbox";
-import DonationCard from "../components/DonationCard";
-import Modal from "../components/Modal";
+import { useEffect, useState, Suspense, lazy } from "react";
+import { Header } from "@america-transparente/ui/core";
+import { SearchBar } from "@america-transparente/ui/search";
+import { DonationCard } from "@america-transparente/ui/core";
+import Filters from "../components/Filters";
+const Results = lazy(() => import("../components/Results"));
+import logo from "../assets/at_logo.webp";
 
 function Home() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDonationCardOpen, setIsDonationCardOpen] = useState(false);
+  const [theme, setTheme] = useState("");
+  const [showDonationCard, setShowDonationCard] = useState(false);
 
-  // // this is the first time or more than 2 hours since
-  // if (
-  //   !localStorage.alreadyAnswered &&
-  //   (!localStorage.firstVisit ||
-  //     localStorage.firstVisit >= Date.now() + 1800000)
-  // ) {
-  //   // Start the user segment popup
-  //   setIsDonationCardOpen(true);
+  const halfAnHourInMilliseconds = 30 * 60000;
 
-  //   localStorage.firstVisit = Date.now();
-  // }
+  useEffect(() => {
+    const donationPopup = setTimeout(() => {
+      setShowDonationCard(true);
+    }, halfAnHourInMilliseconds);
+    return () => clearInterval(donationPopup);
+  }, []);
+
+  useEffect(() => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   return (
     <>
-      <Header title="Reguleque" />
-      <main className="mx-auto max-w-6xl px-4 text-font font">
-        <section className="sticky top-0 pt-4 bg-gray-100/90 bg-clip-padding backdrop-filter backdrop-blur-sm">
-          <div className="flex flex-row items-center space-x-4 pb-4 lg:pb-0">
-            <Searchbox />
-            <button
-              aria-label="Abrir filtros de busqueda"
-              className="p-2 bg-white rounded-2xl shadow-md lg:hidden"
-              onClick={() => setIsSidebarOpen((prev) => !prev)}
-            >
-              <FilterIcon />
-            </button>
-          </div>
-          <Sidebar isOpen={isSidebarOpen} />
-        </section>
-        <HitsOnScroll />
-      </main>
-      <Modal
-        title="Necesitamos pedirte algo."
-        content={<DonationCard />}
-        isOpen={isDonationCardOpen}
-        setIsOpen={setIsDonationCardOpen}
+      <Header
+        title="Reguleque"
+        description="Reguleque es un buscador de funcionarios públicos de Chile, basado en distintas fuentes de transparencia estatal."
+        imagePath={logo}
+        captureThemeChange={setTheme}
       />
+      <main className="text-font font mx-auto max-w-6xl px-4 pb-4">
+        <div className="sticky top-0 z-50 flex flex-col gap-4 bg-light-neutral-300/80 bg-clip-padding py-4 backdrop-blur-sm backdrop-filter dark:bg-dark-neutral-300/80">
+          <SearchBar placeholder="Buscar funcionarios" />
+          <Filters />
+        </div>
+        <Suspense
+          fallback={
+            <p className="text-center text-xl text-light-text-100 dark:text-dark-text-100">
+              Cargando...
+            </p>
+          }
+        >
+          <Results />
+        </Suspense>
+      </main>
+      {showDonationCard && (
+        <DonationCard
+          showDonationCard={showDonationCard}
+          setShowDonationCard={setShowDonationCard}
+        />
+      )}
     </>
   );
 }
