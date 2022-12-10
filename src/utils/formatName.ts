@@ -1,3 +1,4 @@
+// @ts-expect-error
 import namecase, { checkName } from "./names";
 
 /**
