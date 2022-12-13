@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx --quiet --fix"
+    "lint": "tsc --noEmit && eslint \"./src/**/*.{js,ts,jsx,tsx}\" --fix"
   },
   "dependencies": {
     "@america-transparente/ui": "^3.1.3",
