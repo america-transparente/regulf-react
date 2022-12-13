@@ -15,12 +15,12 @@ interface Props {
 const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) =>
   items.map((item, index) => ({
     ...item,
-    nombre: formatName(item.nombre),
+    nombre: formatName(item.nombre as string | undefined),
     tipo_calificación_profesional: formatName(
-      item.tipo_calificación_profesional
+      item.tipo_calificación_profesional as string | undefined
     ),
-    región: formatName(item.región),
-    tipo_cargo: formatName(item.tipo_cargo),
+    región: formatName(item.región as string | undefined),
+    tipo_cargo: formatName(item.tipo_cargo as string | undefined),
     tipo_contrato:
       item.tipo_contrato instanceof String
         ? item.tipo_contrato.charAt(0).toUpperCase() +
@@ -32,14 +32,18 @@ const tidyItems: UseInfiniteHitsProps["transformItems"] = (items) =>
           item.tipo_estamento.slice(1)
         : item.tipo_estamento,
     remuneración_líquida_mensual: formatRevenue(
-      item.remuneración_líquida_mensual
+      item.remuneración_líquida_mensual as string | number
     ),
-    remuneración_bruta_mensual: formatRevenue(item.remuneración_bruta_mensual),
+    remuneración_bruta_mensual: formatRevenue(
+      item.remuneración_bruta_mensual as string | number
+    ),
     unidad_monetaria:
       item.unidad_monetaria instanceof String
         ? item.unidad_monetaria.toLowerCase()
         : item.unidad_monetaria,
-    viáticos: formatRevenue(item.viáticos ?? "Indeterminado"),
+    viáticos: formatRevenue(
+      (item.viáticos as string | number) ?? "Indeterminado"
+    ),
     fecha_egreso: item.fecha_egreso ?? "No reportado",
     position: index,
   }));
